@@ -22,6 +22,7 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
+				mono: ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -57,16 +58,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// Art-specific colors for direct use when needed
+				'blood-red': '#D71920',
+				'matte-black': '#121212',
+				'canvas-beige': '#F6F0E8',
+				'muted-gold': '#B79D68',
+				'ash-grey': '#2E2E2E',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -75,50 +72,73 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				},
-				'fade-in-up': {
-					'0%': {
-						opacity: '0',
-						transform: 'translateY(30px)'
-					},
-					'100%': {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				},
 				'paint-drip': {
-					'0%': {
-						transform: 'translateY(-20px)',
-						opacity: '0'
+					'0%': { transform: 'translateY(-100%) scaleY(0)', opacity: '0' },
+					'50%': { opacity: '1' },
+					'100%': { transform: 'translateY(100vh) scaleY(1)', opacity: '0' }
+				},
+				'brush-stroke': {
+					'0%': { clipPath: 'inset(0 100% 0 0)' },
+					'100%': { clipPath: 'inset(0 0 0 0)' }
+				},
+				'canvas-reveal': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'scale(0.95) rotateX(5deg)',
+						filter: 'blur(10px)'
 					},
-					'50%': {
-						opacity: '1'
-					},
-					'100%': {
-						transform: 'translateY(20px)',
-						opacity: '0'
+					'100%': { 
+						opacity: '1', 
+						transform: 'scale(1) rotateX(0deg)',
+						filter: 'blur(0px)'
 					}
+				},
+				'artwork-float': {
+					'0%, 100%': { transform: 'translateY(0px) rotateY(0deg)' },
+					'50%': { transform: 'translateY(-10px) rotateY(2deg)' }
+				},
+				'signature-draw': {
+					'0%': { strokeDashoffset: '100', opacity: '0' },
+					'50%': { opacity: '1' },
+					'100%': { strokeDashoffset: '0', opacity: '1' }
+				},
+				'fade-in-up': {
+					'0%': { opacity: '0', transform: 'translateY(30px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'splatter-fade': {
+					'0%': { opacity: '0', transform: 'scale(0.8) rotate(-5deg)' },
+					'50%': { opacity: '0.8', transform: 'scale(1.1) rotate(2deg)' },
+					'100%': { opacity: '0.3', transform: 'scale(1) rotate(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				'paint-drip': 'paint-drip 3s ease-in-out infinite',
+				'brush-stroke': 'brush-stroke 0.8s ease-out',
+				'canvas-reveal': 'canvas-reveal 1.2s cubic-bezier(0.23, 1, 0.32, 1)',
+				'artwork-float': 'artwork-float 6s ease-in-out infinite',
+				'signature-draw': 'signature-draw 2s ease-out',
 				'fade-in-up': 'fade-in-up 0.8s ease-out',
-				'paint-drip': 'paint-drip 3s ease-in-out infinite'
+				'splatter-fade': 'splatter-fade 0.6s ease-out'
+			},
+			backgroundImage: {
+				'gradient-blood': 'linear-gradient(135deg, hsl(215 25 32) 0%, hsl(0 40 15) 100%)',
+				'gradient-canvas': 'linear-gradient(135deg, hsl(246 240 232) 0%, hsl(46 46 46) 100%)',
+				'gradient-splatter': 'radial-gradient(circle, hsl(215 25 32 / 0.8) 0%, hsl(215 25 32 / 0.2) 70%)',
+			},
+			boxShadow: {
+				'gallery': '0 25px 50px -12px hsl(18 18 18 / 0.8)',
+				'artwork': '0 10px 40px -10px hsl(215 25 32 / 0.3)',
+				'canvas': 'inset 0 0 40px hsl(246 240 232 / 0.05)',
 			}
 		}
 	},

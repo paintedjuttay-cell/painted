@@ -8,26 +8,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 84% 60%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 30 15% 85%;
-    --secondary-foreground: 0 0% 12%;
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 84% 60%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 84% 60%;
-    --radius: 0.5rem;
+    /* Brand Color Palette - Gallery meets Street */
+    --background: 18 18 18; /* Matte Black #121212 */
+    --foreground: 246 240 232; /* Canvas Beige #F6F0E8 */
+    
+    --card: 46 46 46; /* Deep Ash Grey #2E2E2E */
+    --card-foreground: 246 240 232;
+    
+    --popover: 18 18 18;
+    --popover-foreground: 246 240 232;
+    
+    --primary: 215 25 32; /* Blood Red #D71920 */
+    --primary-foreground: 246 240 232;
+    
+    --secondary: 46 46 46; /* Deep Ash Grey */
+    --secondary-foreground: 246 240 232;
+    
+    --muted: 46 46 46;
+    --muted-foreground: 183 157 104; /* Muted Gold #B79D68 */
+    
+    --accent: 183 157 104; /* Muted Gold */
+    --accent-foreground: 18 18 18;
+    
+    --destructive: 215 25 32;
+    --destructive-foreground: 246 240 232;
+    
+    --border: 46 46 46;
+    --input: 46 46 46;
+    --ring: 215 25 32;
+    --radius: 0rem; /* Sharp edges for gallery feel */
   }
 }
 
@@ -44,28 +53,63 @@
   }
 }
 
-/* Custom animations */
-@keyframes brush-stroke {
-  0% {
-    stroke-dasharray: 0 100;
-  }
-  100% {
-    stroke-dasharray: 100 0;
-  }
+/* Gallery Art Animations & Effects */
+
+/* Canvas Texture Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, hsl(246 240 232 / 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, hsl(215 25 32 / 0.03) 0%, transparent 50%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="canvas" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.5" fill="%23F6F0E8" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23canvas)"/></svg>');
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes paint-drip {
-  0% {
-    transform: translateY(-20px);
-    opacity: 0;
+  0% { transform: translateY(-100%) scaleY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) scaleY(1); opacity: 0; }
+}
+
+@keyframes brush-stroke {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes canvas-reveal {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.95) rotateX(5deg);
+    filter: blur(10px);
   }
-  50% {
-    opacity: 1;
+  100% { 
+    opacity: 1; 
+    transform: scale(1) rotateX(0deg);
+    filter: blur(0px);
   }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
+}
+
+@keyframes splatter-fade {
+  0% { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+  50% { opacity: 0.8; transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes artwork-float {
+  0%, 100% { transform: translateY(0px) rotateY(0deg); }
+  50% { transform: translateY(-10px) rotateY(2deg); }
+}
+
+@keyframes signature-draw {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
 }
 
 @keyframes fade-in-up {
@@ -79,150 +123,120 @@
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 5px hsl(215 25 32 / 0.5);
   }
   50% {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+    box-shadow: 0 0 20px hsl(215 25 32 / 0.8);
   }
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: -468px 0;
-  }
-  100% {
-    background-position: 468px 0;
-  }
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
 }
 
-.brush-stroke {
-  animation: brush-stroke 2s ease-in-out;
-}
-
+/* Interactive Elements */
 .paint-drip {
   animation: paint-drip 3s ease-in-out infinite;
 }
 
-.fade-in-up {
-  animation: fade-in-up 0.8s ease-out;
+.brush-reveal {
+  animation: brush-stroke 0.8s ease-out;
 }
 
-.float {
-  animation: float 3s ease-in-out infinite;
+.canvas-enter {
+  animation: canvas-reveal 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.splatter-hover {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.splatter-hover::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, hsl(215 25 32 / 0.8) 0%, hsl(215 25 32 / 0.2) 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.splatter-hover:hover::before {
+  animation: splatter-fade 0.6s ease-out;
+}
+
+.artwork-float {
+  animation: artwork-float 6s ease-in-out infinite;
+}
+
+/* Gallery Card Styles */
+.gallery-card {
+  background: linear-gradient(135deg, hsl(46 46 46 / 0.1) 0%, hsl(18 18 18 / 0.9) 100%);
+  border: 1px solid hsl(46 46 46 / 0.3);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsl(183 157 104 / 0.1), transparent);
+  transition: left 0.8s ease-out;
+}
+
+.gallery-card:hover::before {
+  left: 100%;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 40px -10px hsl(215 25 32 / 0.3);
+}
+
+/* Cinematic Text Effects */
+.signature-text {
+  background: linear-gradient(135deg, hsl(246 240 232), hsl(183 157 104));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: signature-draw 2s ease-out;
+}
+
+/* Enhanced Hover Effects */
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
 }
 
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-.typing {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3.5s steps(40, end);
-}
-
 .shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(90deg, transparent, hsl(246 240 232 / 0.1), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
 
-/* Custom gradient backgrounds */
-.gradient-blood {
-  background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #000000 100%);
-}
-
-.gradient-canvas {
-  background: linear-gradient(135deg, #f5f5dc 0%, #e5e5e5 50%, #d1d1d1 100%);
-}
-
-/* Hover effects */
-.shoe-card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.shoe-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: hsl(var(--background));
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent));
-}
-
-/* Range slider styling */
-.slider {
-  background: linear-gradient(to right, #dc2626 0%, #dc2626 30%, #4b5563 30%, #4b5563 100%);
-}
-
-.slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #dc2626;
-  cursor: pointer;
-  border: 2px solid #000;
-}
-
-.slider::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #dc2626;
-  cursor: pointer;
-  border: 2px solid #000;
-}
-
-/* Cursor effects */
-.cursor-paint {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>') 12 12, auto;
-}
-
-/* Loading animation */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-/* Card hover effects */
+/* Collection Card Enhanced */
 .collection-card {
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, hsl(46 46 46 / 0.1) 0%, hsl(18 18 18 / 0.9) 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .collection-card::before {
@@ -232,7 +246,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(90deg, transparent, hsl(246 240 232 / 0.1), transparent);
   transition: left 0.5s;
 }
 
@@ -240,19 +254,22 @@
   left: 100%;
 }
 
-/* Text effects */
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+.collection-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px hsl(18 18 18 / 0.8);
 }
 
-.text-glow {
-  text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+/* Cursor Effects */
+.cursor-brush {
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23D71920" opacity="0.6"/></svg>') 10 10, pointer;
 }
 
-/* Button effects */
+/* Button Paint Effect */
 .btn-paint {
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, hsl(215 25 32) 0%, hsl(0 40 15) 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-paint::before {
@@ -262,10 +279,37 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, hsl(246 240 232 / 0.2), transparent);
   transition: left 0.6s;
 }
 
 .btn-paint:hover::before {
   left: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(18 18 18);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(215 25 32);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(183 157 104);
+}
+
+/* Text Effects */
+.text-shadow {
+  text-shadow: 2px 2px 4px hsl(18 18 18 / 0.8);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px hsl(215 25 32 / 0.5);
 }
