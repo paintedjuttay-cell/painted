@@ -2,12 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ShoppingBag, User, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { toggleSidebar } = useSidebar();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,9 +30,8 @@ const Header = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Sidebar Trigger & Logo */}
-          <div className="flex items-center space-x-4">
-            <SidebarTrigger className="text-white hover:text-red-500" />
+          {/* Logo */}
+          <div className="flex items-center">
             <img 
               src="/lovable-uploads/bb01e554-f555-42b5-851f-348b4737df17.png" 
               alt="Painted Juttay" 

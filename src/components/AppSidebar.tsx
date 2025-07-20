@@ -22,6 +22,7 @@ import {
   SidebarMenuItem,
   SidebarHeader,
   SidebarFooter,
+  SidebarTrigger,
   useSidebar,
 } from '@/components/ui/sidebar';
 
@@ -68,17 +69,20 @@ export function AppSidebar() {
 
   return (
     <Sidebar 
-      className="border-r border-white/10 bg-black/90 backdrop-blur-md"
+      className="border-r border-white/10 bg-black/50 backdrop-blur-md"
       collapsible="icon"
     >
       <SidebarHeader className="border-b border-white/10 p-4">
-        <div className="flex items-center space-x-2">
-          <img 
-            src="/lovable-uploads/bb01e554-f555-42b5-851f-348b4737df17.png" 
-            alt="Painted Juttay" 
-            className="h-8 w-auto"
-          />
-          {open && <span className="text-white font-bold text-lg">Navigation</span>}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/bb01e554-f555-42b5-851f-348b4737df17.png" 
+              alt="Painted Juttay" 
+              className="h-8 w-auto"
+            />
+            {open && <span className="text-white font-bold text-lg">Painted Juttay</span>}
+          </div>
+          <SidebarTrigger className="text-white hover:text-red-400" />
         </div>
       </SidebarHeader>
 
