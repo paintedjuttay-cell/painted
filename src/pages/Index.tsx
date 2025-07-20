@@ -1,5 +1,7 @@
 
 import React from 'react';
+import { SidebarProvider } from '@/components/ui/sidebar';
+import { AppSidebar } from '@/components/AppSidebar';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import EnhancedCollections from '@/components/EnhancedCollections';
@@ -12,17 +14,32 @@ import CustomerSupport from '@/components/CustomerSupport';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
-      <Hero />
-      <EnhancedCollections />
-      <CustomOrder />
-      <TheVault />
-      <FeaturedProduct />
-      <Footer />
-      <AmbientSound />
-      <CustomerSupport />
-    </div>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full bg-black">
+        <AppSidebar />
+        <main className="flex-1">
+          <Header />
+          <div id="hero">
+            <Hero />
+          </div>
+          <div id="collections">
+            <EnhancedCollections />
+          </div>
+          <div id="custom-order">
+            <CustomOrder />
+          </div>
+          <div id="vault">
+            <TheVault />
+          </div>
+          <div id="featured">
+            <FeaturedProduct />
+          </div>
+          <Footer />
+          <AmbientSound />
+          <CustomerSupport />
+        </main>
+      </div>
+    </SidebarProvider>
   );
 };
 
