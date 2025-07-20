@@ -31,9 +31,9 @@ const FeaturedProduct = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center canvas-enter">
           {/* Product Images */}
           <div className="space-y-4">
             {/* Main Image */}
@@ -95,11 +95,11 @@ const FeaturedProduct = () => {
           <div className="space-y-6">
             {/* Header */}
             <div>
-              <p className="text-red-500 text-sm font-semibold mb-2">FEATURED ARTWORK</p>
-              <h1 className="font-serif text-3xl lg:text-4xl font-bold text-white mb-2">
+              <p className="text-primary text-sm font-semibold mb-2 fade-in-up">FEATURED ARTWORK</p>
+              <h1 className="font-serif text-3xl lg:text-4xl font-bold text-card-foreground mb-2 signature-text">
                 {product.name}
               </h1>
-              <p className="text-gray-400">by {product.artist}</p>
+              <p className="text-muted-foreground">by {product.artist}</p>
             </div>
 
             {/* Price */}

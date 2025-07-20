@@ -80,14 +80,14 @@ const TheVault = () => {
   };
 
   return (
-    <section id="vault" className="py-20 bg-black">
+    <section id="vault" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-white mb-4">
-            The <span className="text-red-500">Vault</span>
+        <div className="text-center mb-16 canvas-enter">
+          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-foreground mb-4 signature-text">
+            The <span className="text-primary">Vault</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto fade-in-up">
             Exclusive one-of-a-kind pieces available through live bidding. These masterpieces will never be recreated.
           </p>
         </div>
@@ -102,7 +102,7 @@ const TheVault = () => {
                 alt={auctionItems[0].name}
                 className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+              <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1 pulse-glow">
                 <Crown className="h-3 w-3" fill="currentColor" />
                 FEATURED
               </div>
@@ -135,15 +135,15 @@ const TheVault = () => {
               </div>
 
               {/* Timer */}
-              <Card className="bg-red-600/20 border-red-600">
+              <Card className="bg-primary/20 border-primary gallery-card">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-center space-x-4">
-                    <Timer className="h-6 w-6 text-red-500" />
+                    <Timer className="h-6 w-6 text-primary" />
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-foreground">
                         {formatTime(timeLeft)}
                       </div>
-                      <div className="text-red-400 text-sm">Time Remaining</div>
+                      <div className="text-primary text-sm">Time Remaining</div>
                     </div>
                   </div>
                 </CardContent>

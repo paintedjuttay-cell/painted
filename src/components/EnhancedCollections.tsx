@@ -103,14 +103,14 @@ const EnhancedCollections = () => {
     : collections.filter(collection => collection.category === activeFilter);
 
   return (
-    <section id="collections" className="py-20 bg-black">
+    <section id="collections" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-white mb-4">
-            Our <span className="text-red-500">Collections</span>
+        <div className="text-center mb-16 canvas-enter">
+          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-foreground mb-4 signature-text">
+            Our <span className="text-primary">Collections</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 fade-in-up">
             Each collection tells a different story, crafted by passionate artists who transform ordinary shoes into extraordinary art pieces.
           </p>
 
@@ -123,8 +123,8 @@ const EnhancedCollections = () => {
                 variant={activeFilter === category.id ? "default" : "outline"}
                 className={`${
                   activeFilter === category.id
-                    ? 'bg-red-600 hover:bg-red-700 text-white'
-                    : 'border-gray-600 text-gray-300 hover:border-red-500 hover:text-red-500'
+                    ? 'bg-primary hover:bg-primary/90 text-primary-foreground btn-paint'
+                    : 'border-border text-muted-foreground hover:border-primary hover:text-primary splatter-hover'
                 } transition-all duration-200`}
               >
                 <Filter className="mr-2 h-4 w-4" />
@@ -139,7 +139,7 @@ const EnhancedCollections = () => {
           {filteredCollections.map((collection, index) => (
             <Card 
               key={collection.id} 
-              className={`shoe-card bg-gray-900 border-gray-800 overflow-hidden group cursor-pointer transition-all duration-300 ${
+              className={`gallery-card collection-card bg-card border-border overflow-hidden group cursor-brush transition-all duration-300 ${
                 collection.featured ? 'lg:col-span-2 lg:row-span-2' : ''
               } ${collection.soldOut ? 'opacity-75' : ''}`}
               onMouseEnter={() => setHoveredCard(collection.id)}
@@ -160,18 +160,18 @@ const EnhancedCollections = () => {
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex gap-2">
                   {collection.featured && (
-                    <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                    <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 pulse-glow">
                       <Star className="h-3 w-3" fill="currentColor" />
                       Featured
                     </div>
                   )}
                   {collection.soldOut && (
-                    <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-semibold">
                       Sold Out
                     </div>
                   )}
                   {collection.category === 'bids' && (
-                    <div className="bg-yellow-600 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold shimmer">
                       Auction
                     </div>
                   )}

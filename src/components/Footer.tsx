@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-gray-800">
+    <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -16,18 +16,18 @@ const Footer = () => {
               alt="Painted Juttay" 
               className="h-12 w-auto"
             />
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Where art meets street. We transform ordinary sneakers into extraordinary canvases, 
               supporting emerging Pakistani artists one pair at a time.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-red-500">
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary splatter-hover">
                 <Instagram className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-red-500">
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary splatter-hover">
                 <Facebook className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-red-500">
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary splatter-hover">
                 <Twitter className="h-5 w-5" />
               </Button>
             </div>
@@ -35,7 +35,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-foreground font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 'Collections',
@@ -47,7 +47,7 @@ const Footer = () => {
                 'Care Instructions'
               ].map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200 text-sm">
+                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm splatter-hover">
                     {link}
                   </a>
                 </li>

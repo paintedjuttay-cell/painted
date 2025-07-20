@@ -60,7 +60,7 @@ const CustomerSupport = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           onClick={() => setIsOpen(true)}
-          className="bg-red-600 hover:bg-red-700 text-white rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-200"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-200 pulse-glow"
         >
           <MessageCircle className="h-6 w-6" />
         </Button>
@@ -70,9 +70,9 @@ const CustomerSupport = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <Card className="w-80 h-96 bg-black border-gray-800 shadow-2xl">
+      <Card className="w-80 h-96 bg-background border-border shadow-2xl gallery-card">
         {/* Header */}
-        <div className="bg-red-600 text-white p-4 rounded-t-lg">
+        <div className="bg-primary text-primary-foreground p-4 rounded-t-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

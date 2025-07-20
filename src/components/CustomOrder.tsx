@@ -57,14 +57,14 @@ const CustomOrder = () => {
   }, [selectedBase, selectedTheme, selectedArtist, customText]);
 
   return (
-    <section id="customizer" className="py-20 bg-gray-900">
+    <section id="customizer" className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-white mb-4">
-            Build Your <span className="text-red-500">Masterpiece</span>
+        <div className="text-center mb-16 canvas-enter">
+          <h2 className="font-serif text-4xl lg:text-6xl font-bold text-card-foreground mb-4 signature-text">
+            Build Your <span className="text-primary">Masterpiece</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto fade-in-up">
             Create a one-of-a-kind painted sneaker that tells your story. Our artists will bring your vision to life.
           </p>
         </div>
@@ -73,11 +73,11 @@ const CustomOrder = () => {
           {/* Configuration Panel */}
           <div className="lg:col-span-2 space-y-8">
             {/* Step 1: Choose Base */}
-            <Card className="bg-black border-gray-800">
+            <Card className="gallery-card bg-background border-border">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
-                  <h3 className="text-xl font-bold text-white">Choose Your Canvas</h3>
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold pulse-glow">1</div>
+                  <h3 className="text-xl font-bold text-foreground">Choose Your Canvas</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {shoeBase.map((shoe) => (
