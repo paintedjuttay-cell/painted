@@ -55,7 +55,7 @@ const navigationItems = [
 ];
 
 export function AppSidebar() {
-  const { open } = useSidebar();
+  const { open, setOpen } = useSidebar();
   
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -82,7 +82,10 @@ export function AppSidebar() {
             />
             {open && <span className="text-white font-bold text-lg">Painted Juttay</span>}
           </div>
-          <SidebarTrigger className="text-white hover:text-red-400" />
+          <SidebarTrigger 
+            className="text-white hover:text-red-400" 
+            onClick={() => setOpen(!open)}
+          />
         </div>
       </SidebarHeader>
 

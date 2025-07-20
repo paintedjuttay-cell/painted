@@ -20,7 +20,7 @@ const Hero = () => {
       {/* Background Video/Image */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-black via-red-900/20 to-black">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549298916-b41d501d3772')] bg-cover bg-center opacity-30" />
+          <div className="absolute inset-0 bg-[url('/lovable-uploads/7079cb8a-d812-456f-baaa-c741c04a8c4d.png')] bg-cover bg-center opacity-60" />
         </div>
       </div>
 

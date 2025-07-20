@@ -39,18 +39,7 @@ const Header = () => {
             />
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-white hover:text-red-500 transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
-            ))}
-          </nav>
+          {/* Desktop Navigation - Removed since items are in sidebar */}
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
@@ -82,34 +71,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-white/10">
-            <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-white hover:text-red-500 transition-colors duration-200 font-medium text-lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-              <div className="flex items-center space-x-4 pt-4 border-t border-white/10">
-                <Button variant="ghost" size="icon" className="text-white hover:text-red-500">
-                  <Search className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-white hover:text-red-500">
-                  <User className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-white hover:text-red-500">
-                  <ShoppingBag className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Mobile Navigation - Removed since items are in sidebar */}
       </div>
     </header>
   );
