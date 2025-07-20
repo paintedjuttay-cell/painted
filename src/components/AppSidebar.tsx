@@ -82,7 +82,7 @@ export function AppSidebar() {
             />
             {open && <span className="text-white font-bold text-lg">Painted Juttay</span>}
           </div>
-          {open && <SidebarTrigger className="text-white hover:text-red-400" />}
+          <SidebarTrigger className="text-white hover:text-red-400" />
         </div>
       </SidebarHeader>
 
