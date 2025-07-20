@@ -58,12 +58,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Art-specific colors for direct use when needed
-				'blood-red': '#D71920',
-				'matte-black': '#121212',
-				'canvas-beige': '#F6F0E8',
-				'muted-gold': '#B79D68',
-				'ash-grey': '#2E2E2E',
+				// Urban Sneaker Brand Colors
+				'bmw-red': 'hsl(var(--bmw-red))',
+				'bmw-blue': 'hsl(var(--bmw-blue))',
+				'bmw-black': 'hsl(var(--bmw-black))',
+				'neon-yellow': 'hsl(var(--neon-yellow))',
+				'neon-green': 'hsl(var(--accent))',
+				'blood-crimson': 'hsl(var(--blood-crimson))',
+				'blush-pink': 'hsl(var(--blush-pink))',
+				'lilac': 'hsl(var(--lilac))',
+				'mint': 'hsl(var(--mint))',
+				'cream': 'hsl(var(--cream))',
+				'stone': 'hsl(var(--stone))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

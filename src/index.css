@@ -8,41 +8,47 @@
 
 @layer base {
   :root {
-    /* Premium Art Gallery Palette - Elevated & Sophisticated */
-    --background: 28 28 30; /* Deep Charcoal #1c1c1e */
-    --foreground: 250 250 250; /* Pure White #fafafa */
+    /* Urban Sneaker Brand Palette - Bold & Artistic */
+    --background: 0 0 98; /* Clean White #fafafa */
+    --foreground: 0 0 5; /* Deep Black #0d0d0d */
     
-    --card: 44 44 46; /* Charcoal Grey #2c2c2e */
-    --card-foreground: 250 250 250;
+    --card: 0 0 96; /* Light Grey #f5f5f5 */
+    --card-foreground: 0 0 5;
     
-    --popover: 28 28 30;
-    --popover-foreground: 250 250 250;
+    --popover: 0 0 98;
+    --popover-foreground: 0 0 5;
     
-    --primary: 255 215 0; /* Mustard Gold #FFD700 */
-    --primary-foreground: 28 28 30;
+    --primary: 0 0 12; /* Charcoal Black #1e1e1e */
+    --primary-foreground: 0 0 98;
     
-    --secondary: 72 72 74; /* Medium Grey #48484a */
-    --secondary-foreground: 250 250 250;
+    --secondary: 217 89 61; /* BMW Blue #4285f4 */
+    --secondary-foreground: 0 0 98;
     
-    --muted: 58 58 60; /* Dark Grey #3a3a3c */
-    --muted-foreground: 174 174 178; /* Light Grey #aeaeb2 */
+    --muted: 0 0 88; /* Stone Grey #e0e0e0 */
+    --muted-foreground: 0 0 35; /* Dark Grey #595959 */
     
-    --accent: 229 218 193; /* Chalk Beige #e5dac1 */
-    --accent-foreground: 28 28 30;
+    --accent: 66 100 50; /* Neon Green #00ff19 */
+    --accent-foreground: 0 0 5;
     
-    --destructive: 215 25 32; /* Keep for error states */
-    --destructive-foreground: 250 250 250;
+    --destructive: 0 84 33; /* Blood Red #a30000 */
+    --destructive-foreground: 0 0 98;
     
-    --border: 58 58 60;
-    --input: 44 44 46;
-    --ring: 255 215 0;
-    --radius: 0.125rem; /* Subtle rounded corners for modern feel */
+    --border: 0 0 85;
+    --input: 0 0 96;
+    --ring: 66 100 50;
+    --radius: 0.375rem; /* Modern rounded corners */
     
-    /* Art-Specific Color Variables */
-    --art-crimson: 220 38 127; /* For bloody series only */
-    --art-teal: 20 184 166; /* For digital/modern pieces */
-    --art-amber: 245 158 11; /* For vintage/classic pieces */
-    --gallery-spotlight: 255 255 255; /* Pure white for highlights */
+    /* Urban Sneaker Color System */
+    --bmw-red: 0 100 50; /* BMW M Red #ff0000 */
+    --bmw-blue: 217 89 61; /* BMW M Blue #4285f4 */
+    --bmw-black: 0 0 8; /* BMW M Black #141414 */
+    --neon-yellow: 60 100 50; /* Neon Yellow #ffff00 */
+    --blood-crimson: 0 84 33; /* Dark Crimson #a30000 */
+    --blush-pink: 340 100 87; /* Soft Pink #ffb3d9 */
+    --lilac: 280 50 87; /* Lilac #d9b3ff */
+    --mint: 150 50 87; /* Mint #b3ffcc */
+    --cream: 48 30 95; /* Cream #f7f2e6 */
+    --stone: 0 0 70; /* Stone Grey #b3b3b3 */
   }
 }
 
