@@ -8,47 +8,45 @@
 
 @layer base {
   :root {
-    /* Urban Sneaker Brand Palette - Bold & Artistic */
-    --background: 0 0 98; /* Clean White #fafafa */
-    --foreground: 0 0 5; /* Deep Black #0d0d0d */
+    /* Painted Juttay Brand Guidelines - Cinematic Art & Streetwear */
+    --background: 210 11 12; /* Deep Charcoal #1c1c1e */
+    --foreground: 0 0 95; /* Soft White #f2f2f2 */
     
-    --card: 0 0 96; /* Light Grey #f5f5f5 */
-    --card-foreground: 0 0 5;
+    --card: 210 9 15; /* Slightly lighter charcoal #262629 */
+    --card-foreground: 0 0 95;
     
-    --popover: 0 0 98;
-    --popover-foreground: 0 0 5;
+    --popover: 210 11 12;
+    --popover-foreground: 0 0 95;
     
-    --primary: 0 0 12; /* Charcoal Black #1e1e1e */
-    --primary-foreground: 0 0 98;
+    --primary: 180 100 35; /* Bold Teal #00b3b3 */
+    --primary-foreground: 0 0 95;
     
-    --secondary: 217 89 61; /* BMW Blue #4285f4 */
-    --secondary-foreground: 0 0 98;
+    --secondary: 210 11 20; /* Medium Charcoal #333336 */
+    --secondary-foreground: 0 0 95;
     
-    --muted: 0 0 88; /* Stone Grey #e0e0e0 */
-    --muted-foreground: 0 0 35; /* Dark Grey #595959 */
+    --muted: 210 9 25; /* Muted Charcoal #3d3d42 */
+    --muted-foreground: 0 0 70; /* Light Grey #b3b3b3 */
     
-    --accent: 66 100 50; /* Neon Green #00ff19 */
-    --accent-foreground: 0 0 5;
+    --accent: 0 50 60; /* Muted Red #b33c3c */
+    --accent-foreground: 0 0 95;
     
-    --destructive: 0 84 33; /* Blood Red #a30000 */
-    --destructive-foreground: 0 0 98;
+    --destructive: 0 70 45; /* Stronger Red #cc1a1a */
+    --destructive-foreground: 0 0 95;
     
-    --border: 0 0 85;
-    --input: 0 0 96;
-    --ring: 66 100 50;
+    --border: 210 9 25;
+    --input: 210 9 15;
+    --ring: 180 100 35;
     --radius: 0.375rem; /* Modern rounded corners */
     
-    /* Urban Sneaker Color System */
-    --bmw-red: 0 100 50; /* BMW M Red #ff0000 */
-    --bmw-blue: 217 89 61; /* BMW M Blue #4285f4 */
-    --bmw-black: 0 0 8; /* BMW M Black #141414 */
-    --neon-yellow: 60 100 50; /* Neon Yellow #ffff00 */
-    --blood-crimson: 0 84 33; /* Dark Crimson #a30000 */
-    --blush-pink: 340 100 87; /* Soft Pink #ffb3d9 */
-    --lilac: 280 50 87; /* Lilac #d9b3ff */
-    --mint: 150 50 87; /* Mint #b3ffcc */
-    --cream: 48 30 95; /* Cream #f7f2e6 */
-    --stone: 0 0 70; /* Stone Grey #b3b3b3 */
+    /* Painted Juttay Design System */
+    --teal-cta: 180 100 35; /* Bold Teal #00b3b3 - Primary CTAs */
+    --teal-hover: 180 100 30; /* Darker Teal #009999 - Hover states */
+    --red-accent: 0 50 60; /* Muted Red #b33c3c - Accents */
+    --red-hover: 0 60 55; /* Stronger Red #cc2626 - Hover accents */
+    --charcoal-deep: 210 11 12; /* Deep Charcoal #1c1c1e - Backgrounds */
+    --charcoal-medium: 210 9 20; /* Medium Charcoal #333336 - Cards */
+    --white-soft: 0 0 95; /* Soft White #f2f2f2 - Text */
+    --grey-muted: 0 0 70; /* Muted Grey #b3b3b3 - Secondary text */
   }
 }
 
