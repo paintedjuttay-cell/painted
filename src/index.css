@@ -8,35 +8,41 @@
 
 @layer base {
   :root {
-    /* Brand Color Palette - Gallery meets Street */
-    --background: 18 18 18; /* Matte Black #121212 */
-    --foreground: 246 240 232; /* Canvas Beige #F6F0E8 */
+    /* Premium Art Gallery Palette - Elevated & Sophisticated */
+    --background: 28 28 30; /* Deep Charcoal #1c1c1e */
+    --foreground: 250 250 250; /* Pure White #fafafa */
     
-    --card: 46 46 46; /* Deep Ash Grey #2E2E2E */
-    --card-foreground: 246 240 232;
+    --card: 44 44 46; /* Charcoal Grey #2c2c2e */
+    --card-foreground: 250 250 250;
     
-    --popover: 18 18 18;
-    --popover-foreground: 246 240 232;
+    --popover: 28 28 30;
+    --popover-foreground: 250 250 250;
     
-    --primary: 215 25 32; /* Blood Red #D71920 */
-    --primary-foreground: 246 240 232;
+    --primary: 255 215 0; /* Mustard Gold #FFD700 */
+    --primary-foreground: 28 28 30;
     
-    --secondary: 46 46 46; /* Deep Ash Grey */
-    --secondary-foreground: 246 240 232;
+    --secondary: 72 72 74; /* Medium Grey #48484a */
+    --secondary-foreground: 250 250 250;
     
-    --muted: 46 46 46;
-    --muted-foreground: 183 157 104; /* Muted Gold #B79D68 */
+    --muted: 58 58 60; /* Dark Grey #3a3a3c */
+    --muted-foreground: 174 174 178; /* Light Grey #aeaeb2 */
     
-    --accent: 183 157 104; /* Muted Gold */
-    --accent-foreground: 18 18 18;
+    --accent: 229 218 193; /* Chalk Beige #e5dac1 */
+    --accent-foreground: 28 28 30;
     
-    --destructive: 215 25 32;
-    --destructive-foreground: 246 240 232;
+    --destructive: 215 25 32; /* Keep for error states */
+    --destructive-foreground: 250 250 250;
     
-    --border: 46 46 46;
-    --input: 46 46 46;
-    --ring: 215 25 32;
-    --radius: 0rem; /* Sharp edges for gallery feel */
+    --border: 58 58 60;
+    --input: 44 44 46;
+    --ring: 255 215 0;
+    --radius: 0.125rem; /* Subtle rounded corners for modern feel */
+    
+    /* Art-Specific Color Variables */
+    --art-crimson: 220 38 127; /* For bloody series only */
+    --art-teal: 20 184 166; /* For digital/modern pieces */
+    --art-amber: 245 158 11; /* For vintage/classic pieces */
+    --gallery-spotlight: 255 255 255; /* Pure white for highlights */
   }
 }
 
@@ -64,9 +70,9 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 80%, hsl(246 240 232 / 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, hsl(215 25 32 / 0.03) 0%, transparent 50%),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="canvas" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.5" fill="%23F6F0E8" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23canvas)"/></svg>');
+    radial-gradient(circle at 25% 25%, hsl(255 215 0 / 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, hsl(20 184 166 / 0.02) 0%, transparent 50%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="canvas" width="3" height="3" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.3" fill="%23fafafa" opacity="0.015"/></pattern></defs><rect width="60" height="60" fill="url(%23canvas)"/></svg>');
   pointer-events: none;
   z-index: 1;
 }
@@ -125,10 +131,10 @@ body::before {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 5px hsl(215 25 32 / 0.5);
+    box-shadow: 0 0 8px hsl(255 215 0 / 0.4);
   }
   50% {
-    box-shadow: 0 0 20px hsl(215 25 32 / 0.8);
+    box-shadow: 0 0 25px hsl(255 215 0 / 0.7);
   }
 }
 
@@ -158,19 +164,19 @@ body::before {
 .splatter-hover::before {
   content: '';
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background: radial-gradient(circle, hsl(215 25 32 / 0.8) 0%, hsl(215 25 32 / 0.2) 70%);
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  background: radial-gradient(circle, hsl(255 215 0 / 0.6) 0%, hsl(255 215 0 / 0.1) 70%);
   border-radius: 50%;
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: -1;
 }
 
 .splatter-hover:hover::before {
-  animation: splatter-fade 0.6s ease-out;
+  animation: splatter-fade 0.8s ease-out;
 }
 
 .artwork-float {
@@ -179,11 +185,12 @@ body::before {
 
 /* Gallery Card Styles */
 .gallery-card {
-  background: linear-gradient(135deg, hsl(46 46 46 / 0.1) 0%, hsl(18 18 18 / 0.9) 100%);
-  border: 1px solid hsl(46 46 46 / 0.3);
+  background: linear-gradient(135deg, hsl(44 44 46 / 0.8) 0%, hsl(28 28 30 / 0.95) 100%);
+  border: 1px solid hsl(58 58 60 / 0.3);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .gallery-card::before {
@@ -193,8 +200,8 @@ body::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, hsl(183 157 104 / 0.1), transparent);
-  transition: left 0.8s ease-out;
+  background: linear-gradient(90deg, transparent, hsl(255 215 0 / 0.15), transparent);
+  transition: left 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .gallery-card:hover::before {
@@ -202,18 +209,19 @@ body::before {
 }
 
 .gallery-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 40px -10px hsl(215 25 32 / 0.3);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 60px -10px hsl(255 215 0 / 0.25);
+  border-color: hsl(255 215 0 / 0.5);
 }
 
 /* Cinematic Text Effects */
 .signature-text {
-  background: linear-gradient(135deg, hsl(246 240 232), hsl(183 157 104));
+  background: linear-gradient(135deg, hsl(250 250 250), hsl(255 215 0), hsl(229 218 193));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-  animation: signature-draw 2s ease-out;
+  background-size: 300% 300%;
+  animation: signature-draw 2.5s ease-out;
 }
 
 /* Enhanced Hover Effects */
@@ -297,12 +305,12 @@ body::before {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(215 25 32);
+  background: hsl(255 215 0);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(183 157 104);
+  background: hsl(229 218 193);
 }
 
 /* Text Effects */
@@ -311,5 +319,133 @@ body::before {
 }
 
 .text-glow {
-  text-shadow: 0 0 10px hsl(215 25 32 / 0.5);
+  text-shadow: 0 0 15px hsl(255 215 0 / 0.6);
+}
+
+/* Enhanced Art Gallery Effects */
+@keyframes gallery-spotlight {
+  0%, 100% { 
+    opacity: 0.1; 
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+@keyframes artistic-float {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
+    filter: brightness(1);
+  }
+  33% { 
+    transform: translateY(-15px) rotateX(5deg) rotateY(5deg); 
+    filter: brightness(1.1);
+  }
+  66% { 
+    transform: translateY(-8px) rotateX(-3deg) rotateY(-3deg); 
+    filter: brightness(0.9);
+  }
+}
+
+@keyframes text-reveal-brush {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-50px) skewX(20deg);
+    filter: blur(5px);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: translateX(0) skewX(0deg);
+    filter: blur(2px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0) skewX(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes premium-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(255 215 0 / 0.3), inset 0 0 20px hsl(255 215 0 / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(255 215 0 / 0.6), inset 0 0 30px hsl(255 215 0 / 0.2);
+  }
+}
+
+/* Interactive Mouse Effects */
+.cursor-artwork {
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23FFD700" opacity="0.7"/><circle cx="12" cy="12" r="4" fill="%23FFD700"/></svg>') 12 12, pointer;
+}
+
+/* Enhanced Gallery Cards */
+.premium-card {
+  background: linear-gradient(135deg, hsl(44 44 46 / 0.9) 0%, hsl(28 28 30 / 0.95) 100%);
+  border: 1px solid hsl(255 215 0 / 0.2);
+  backdrop-filter: blur(20px);
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsl(255 215 0 / 0.2), transparent);
+  transition: left 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.premium-card:hover::before {
+  left: 100%;
+}
+
+.premium-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 30px 80px -10px hsl(255 215 0 / 0.4);
+  border-color: hsl(255 215 0 / 0.8);
+}
+
+/* Cinematic Text Effects */
+.cinematic-title {
+  background: linear-gradient(135deg, hsl(250 250 250), hsl(255 215 0), hsl(229 218 193), hsl(255 215 0));
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: signature-draw 3s ease-out, shimmer 4s ease-in-out infinite 2s;
+}
+
+/* New Animation Classes */
+.gallery-spotlight {
+  animation: gallery-spotlight 8s ease-in-out infinite;
+}
+
+.artistic-float {
+  animation: artistic-float 8s ease-in-out infinite;
+}
+
+.text-reveal-brush {
+  animation: text-reveal-brush 1.5s ease-out;
+}
+
+.premium-glow {
+  animation: premium-glow 3s ease-in-out infinite;
+}
+
+/* Enhanced Hover States */
+.art-hover {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.art-hover:hover {
+  transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 40px -10px hsl(255 215 0 / 0.3);
+  filter: brightness(1.1) saturate(1.2);
 }

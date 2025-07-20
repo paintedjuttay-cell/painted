@@ -58,18 +58,21 @@ const Hero = () => {
           {/* Artist Signature Logo */}
           <div className="mb-12 canvas-enter">
             <div className="inline-block relative">
-              <h1 className="font-serif text-5xl sm:text-7xl lg:text-9xl font-bold text-foreground mb-6 signature-text">
-                <span className="inline-block transform hover:scale-105 transition-transform duration-500 text-shadow">
+              <h1 className="font-serif text-5xl sm:text-7xl lg:text-9xl font-black text-foreground mb-8">
+                <span className="inline-block cinematic-title text-reveal-brush art-hover">
                   Painted
                 </span>
                 <br />
-                <span className="text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-clip-text inline-block transform hover:scale-105 transition-transform duration-500 artwork-float">
-                  Juttay
+                <span className="cinematic-title text-glow inline-block artistic-float cursor-artwork">
+                  {'{'}Juttay{'}'}
                 </span>
               </h1>
               
-              {/* Artist's Brush Stroke Underline */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-primary to-transparent brush-reveal opacity-80"></div>
+              {/* Enhanced Artist's Signature */}
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-5/6">
+                <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent brush-reveal opacity-90"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full premium-glow"></div>
+              </div>
             </div>
           </div>
 
@@ -77,19 +80,19 @@ const Hero = () => {
           <div className={`transform transition-all duration-1500 delay-500 ${
             isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}>
-            <div className="gallery-card p-8 mb-8 backdrop-blur-sm">
-              <div className="flex items-center justify-center mb-4">
-                <Paintbrush className="h-6 w-6 text-accent mr-3" />
-                <span className="text-accent font-serif text-lg tracking-wider">Where Art Meets Street</span>
-                <Paintbrush className="h-6 w-6 text-accent ml-3 scale-x-[-1]" />
+            <div className="premium-card p-10 mb-10 cursor-artwork">
+              <div className="flex items-center justify-center mb-6 group">
+                <Paintbrush className="h-7 w-7 text-primary mr-4 artistic-float" />
+                <span className="text-primary font-serif text-xl tracking-wider font-bold text-glow">Where Art Meets Street</span>
+                <Paintbrush className="h-7 w-7 text-primary ml-4 scale-x-[-1] artistic-float" style={{ animationDelay: '2s' }} />
               </div>
               
-              <p className="text-xl sm:text-2xl text-foreground/90 mb-4 font-light leading-relaxed">
+              <p className="text-2xl sm:text-3xl text-foreground mb-6 font-light leading-relaxed cinematic-title">
                 Hand-painted sneakers that tell stories
               </p>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Each pair is a canvas, each step is a statement. Witness the fusion of Pakistani street culture with contemporary art, 
-                where every brushstroke carries the soul of the artist and every design tells a story of rebellion, beauty, and craftsmanship.
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
+                Each pair is a canvas, each step is a statement. Witness the fusion of <span className="text-accent font-medium">Pakistani street culture</span> with contemporary art, 
+                where every brushstroke carries the soul of the artist and every design tells a story of <span className="text-primary font-medium">rebellion, beauty, and craftsmanship</span>.
               </p>
             </div>
           </div>
@@ -98,20 +101,30 @@ const Hero = () => {
           <div className={`transform transition-all duration-1500 delay-700 ${
             isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
               <Button 
                 size="lg" 
-                className="btn-paint text-foreground font-serif font-semibold px-10 py-4 text-lg splatter-hover hover:scale-105 transition-all duration-300 shadow-artwork"
+                className="btn-paint bg-primary hover:bg-primary/90 text-primary-foreground font-serif font-bold px-12 py-5 text-xl splatter-hover art-hover premium-glow group"
                 onClick={scrollToCollections}
               >
+                <Paintbrush className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 Explore The Gallery
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-foreground/30 text-foreground hover:bg-foreground hover:text-background font-serif font-semibold px-10 py-4 text-lg transition-all duration-500 hover:scale-105 hover:shadow-canvas"
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-serif font-bold px-12 py-5 text-xl art-hover group backdrop-blur-sm"
               >
+                <span className="mr-3">🎨</span>
                 Commission Artwork
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="lg"
+                className="text-foreground hover:text-primary font-serif font-bold px-12 py-5 text-xl art-hover group"
+              >
+                <Volume2 className="mr-3 h-6 w-6 group-hover:scale-125 transition-transform duration-300" />
+                Gallery Tour
               </Button>
             </div>
           </div>
@@ -120,10 +133,10 @@ const Hero = () => {
           <div className={`transform transition-all duration-1500 delay-900 ${
             isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}>
-            <div className="inline-flex items-center bg-primary/10 border border-primary/30 px-6 py-3 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse mr-3"></div>
-              <span className="text-primary font-mono text-sm tracking-wider font-semibold">LIMITED DROPS • AUTHENTIC ARTISTRY • EXCLUSIVE PIECES</span>
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse ml-3"></div>
+            <div className="inline-flex items-center bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/40 px-8 py-4 backdrop-blur-sm premium-glow group cursor-artwork">
+              <div className="w-3 h-3 bg-primary rounded-full animate-pulse mr-4 group-hover:scale-125 transition-transform duration-300"></div>
+              <span className="text-primary font-mono text-base tracking-wider font-bold">LIMITED DROPS • AUTHENTIC ARTISTRY • EXCLUSIVE PIECES</span>
+              <div className="w-3 h-3 bg-primary rounded-full animate-pulse ml-4 group-hover:scale-125 transition-transform duration-300"></div>
             </div>
           </div>
         </div>
