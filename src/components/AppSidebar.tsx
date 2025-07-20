@@ -22,6 +22,7 @@ import {
   SidebarMenuItem,
   SidebarHeader,
   SidebarFooter,
+  useSidebar,
 } from '@/components/ui/sidebar';
 
 const navigationItems = [
@@ -53,6 +54,8 @@ const navigationItems = [
 ];
 
 export function AppSidebar() {
+  const { open } = useSidebar();
+  
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -64,7 +67,10 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="border-r border-white/10 bg-black/90 backdrop-blur-md">
+    <Sidebar 
+      className="border-r border-white/10 bg-black/90 backdrop-blur-md"
+      collapsible="icon"
+    >
       <SidebarHeader className="border-b border-white/10 p-4">
         <div className="flex items-center space-x-2">
           <img 
@@ -72,16 +78,18 @@ export function AppSidebar() {
             alt="Painted Juttay" 
             className="h-8 w-auto"
           />
-          <span className="text-white font-bold text-lg">Navigation</span>
+          {open && <span className="text-white font-bold text-lg">Navigation</span>}
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         {navigationItems.map((section) => (
           <SidebarGroup key={section.title}>
-            <SidebarGroupLabel className="text-red-400 font-semibold">
-              {section.title}
-            </SidebarGroupLabel>
+            {open && (
+              <SidebarGroupLabel className="text-red-400 font-semibold">
+                {section.title}
+              </SidebarGroupLabel>
+            )}
             <SidebarGroupContent>
               <SidebarMenu>
                 {section.items.map((item) => (
@@ -89,9 +97,10 @@ export function AppSidebar() {
                     <SidebarMenuButton 
                       onClick={() => scrollToSection(item.href)}
                       className="text-white hover:text-red-400 hover:bg-white/5 transition-all duration-200 cursor-pointer"
+                      tooltip={!open ? item.title : undefined}
                     >
                       <item.icon className="h-4 w-4" />
-                      <span>{item.title}</span>
+                      {open && <span>{item.title}</span>}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -102,9 +111,11 @@ export function AppSidebar() {
       </SidebarContent>
 
       <SidebarFooter className="border-t border-white/10 p-4">
-        <div className="text-xs text-white/60 text-center">
-          Painted Juttay - Where Art Meets Street
-        </div>
+        {open && (
+          <div className="text-xs text-white/60 text-center">
+            Painted Juttay - Where Art Meets Street
+          </div>
+        )}
       </SidebarFooter>
     </Sidebar>
   );
