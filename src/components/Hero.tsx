@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Volume2, VolumeX, Paintbrush } from 'lucide-react';
+import { ChevronDown, Paintbrush } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(false);
 
   useEffect(() => {
     // Cinematic entrance timing
@@ -118,14 +117,6 @@ const Hero = () => {
                 <span className="mr-3">🎨</span>
                 Commission Artwork
               </Button>
-              <Button 
-                variant="ghost" 
-                size="lg"
-                className="text-foreground hover:text-primary font-serif font-bold px-12 py-5 text-xl art-hover group"
-              >
-                <Volume2 className="mr-3 h-6 w-6 group-hover:scale-125 transition-transform duration-300" />
-                Gallery Tour
-              </Button>
             </div>
           </div>
 
@@ -139,18 +130,6 @@ const Hero = () => {
               <div className="w-3 h-3 bg-primary rounded-full animate-pulse ml-4 group-hover:scale-125 transition-transform duration-300"></div>
             </div>
           </div>
-        </div>
-
-        {/* Sound Toggle - Gallery Style */}
-        <div className="absolute top-6 right-6">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setSoundEnabled(!soundEnabled)}
-            className="text-foreground/70 hover:text-primary transition-all duration-300 backdrop-blur-sm bg-background/20 border border-foreground/10"
-          >
-            {soundEnabled ? <Volume2 className="h-5 w-5" /> : <VolumeX className="h-5 w-5" />}
-          </Button>
         </div>
 
         {/* Gallery Viewing Invitation */}

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Palette, 
@@ -6,7 +7,6 @@ import {
   Star, 
   Users, 
   Info, 
-  Headphones,
   MessageCircle,
   Home,
   Sparkles
@@ -22,7 +22,6 @@ import {
   SidebarMenuItem,
   SidebarHeader,
   SidebarFooter,
-  SidebarTrigger,
   useSidebar,
 } from '@/components/ui/sidebar';
 
@@ -46,16 +45,15 @@ const navigationItems = [
     ]
   },
   {
-    title: "Experience",
+    title: "Support",
     items: [
-      { title: "Ambient Sound", icon: Headphones, href: "#ambient" },
-      { title: "Support", icon: MessageCircle, href: "#support" },
+      { title: "Contact", icon: MessageCircle, href: "#support" },
     ]
   }
 ];
 
 export function AppSidebar() {
-  const { open, setOpen } = useSidebar();
+  const { open } = useSidebar();
   
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -69,31 +67,22 @@ export function AppSidebar() {
 
   return (
     <Sidebar 
-      className="border-r border-white/10 bg-black/50 backdrop-blur-md"
+      className="border-r border-border bg-background/95 backdrop-blur-md"
       collapsible="icon"
     >
-      <SidebarHeader className="border-b border-white/10 p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/bb01e554-f555-42b5-851f-348b4737df17.png" 
-              alt="Painted Juttay" 
-              className="h-8 w-auto"
-            />
-            {open && <span className="text-white font-bold text-lg">Painted Juttay</span>}
+      <SidebarHeader className="border-b border-border p-4">
+        {open && (
+          <div className="text-center">
+            <span className="text-foreground font-bold text-xl tracking-wider">Navigation</span>
           </div>
-          <SidebarTrigger 
-            className="text-white hover:text-red-400" 
-            onClick={() => setOpen(!open)}
-          />
-        </div>
+        )}
       </SidebarHeader>
 
       <SidebarContent>
         {navigationItems.map((section) => (
           <SidebarGroup key={section.title}>
             {open && (
-              <SidebarGroupLabel className="text-red-400 font-semibold">
+              <SidebarGroupLabel className="text-accent font-semibold text-sm uppercase tracking-wider">
                 {section.title}
               </SidebarGroupLabel>
             )}
@@ -103,11 +92,11 @@ export function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton 
                       onClick={() => scrollToSection(item.href)}
-                      className="text-white hover:text-red-400 hover:bg-white/5 transition-all duration-200 cursor-pointer"
+                      className="text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 cursor-pointer group"
                       tooltip={!open ? item.title : undefined}
                     >
-                      <item.icon className="h-4 w-4" />
-                      {open && <span>{item.title}</span>}
+                      <item.icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
+                      {open && <span className="font-medium">{item.title}</span>}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -117,9 +106,9 @@ export function AppSidebar() {
         ))}
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-white/10 p-4">
+      <SidebarFooter className="border-t border-border p-4">
         {open && (
-          <div className="text-xs text-white/60 text-center">
+          <div className="text-xs text-muted-foreground text-center">
             Painted Juttay - Where Art Meets Street
           </div>
         )}

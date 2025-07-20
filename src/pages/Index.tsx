@@ -9,13 +9,12 @@ import CustomOrder from '@/components/CustomOrder';
 import TheVault from '@/components/TheVault';
 import FeaturedProduct from '@/components/FeaturedProduct';
 import Footer from '@/components/Footer';
-import AmbientSound from '@/components/AmbientSound';
 import CustomerSupport from '@/components/CustomerSupport';
 
 const Index = () => {
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-black">
+      <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         <main className="flex-1">
           <Header />
@@ -35,7 +34,6 @@ const Index = () => {
             <FeaturedProduct />
           </div>
           <Footer />
-          <AmbientSound />
           <CustomerSupport />
         </main>
       </div>

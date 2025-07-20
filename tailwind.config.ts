@@ -20,9 +20,12 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
+				sans: ['Roboto', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
 				mono: ['JetBrains Mono', 'monospace'],
+				roboto: ['Roboto', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -58,18 +61,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Urban Sneaker Brand Colors
-				'bmw-red': 'hsl(var(--bmw-red))',
-				'bmw-blue': 'hsl(var(--bmw-blue))',
-				'bmw-black': 'hsl(var(--bmw-black))',
-				'neon-yellow': 'hsl(var(--neon-yellow))',
-				'neon-green': 'hsl(var(--accent))',
-				'blood-crimson': 'hsl(var(--blood-crimson))',
-				'blush-pink': 'hsl(var(--blush-pink))',
-				'lilac': 'hsl(var(--lilac))',
-				'mint': 'hsl(var(--mint))',
-				'cream': 'hsl(var(--cream))',
-				'stone': 'hsl(var(--stone))',
+				// Painted Juttay Design System Colors
+				'teal-cta': 'hsl(var(--teal-cta))',
+				'teal-hover': 'hsl(var(--teal-hover))',
+				'red-accent': 'hsl(var(--red-accent))',
+				'red-hover': 'hsl(var(--red-hover))',
+				'charcoal-deep': 'hsl(var(--charcoal-deep))',
+				'charcoal-medium': 'hsl(var(--charcoal-medium))',
+				'white-soft': 'hsl(var(--white-soft))',
+				'grey-muted': 'hsl(var(--grey-muted))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -137,14 +137,14 @@ export default {
 				'splatter-fade': 'splatter-fade 0.6s ease-out'
 			},
 			backgroundImage: {
-				'gradient-blood': 'linear-gradient(135deg, hsl(215 25 32) 0%, hsl(0 40 15) 100%)',
-				'gradient-canvas': 'linear-gradient(135deg, hsl(246 240 232) 0%, hsl(46 46 46) 100%)',
-				'gradient-splatter': 'radial-gradient(circle, hsl(215 25 32 / 0.8) 0%, hsl(215 25 32 / 0.2) 70%)',
+				'gradient-blood': 'linear-gradient(135deg, hsl(180 100 35) 0%, hsl(0 50 60) 100%)',
+				'gradient-canvas': 'linear-gradient(135deg, hsl(0 0 95) 0%, hsl(210 9 25) 100%)',
+				'gradient-splatter': 'radial-gradient(circle, hsl(180 100 35 / 0.8) 0%, hsl(180 100 35 / 0.2) 70%)',
 			},
 			boxShadow: {
-				'gallery': '0 25px 50px -12px hsl(18 18 18 / 0.8)',
-				'artwork': '0 10px 40px -10px hsl(215 25 32 / 0.3)',
-				'canvas': 'inset 0 0 40px hsl(246 240 232 / 0.05)',
+				'gallery': '0 25px 50px -12px hsl(210 11 12 / 0.8)',
+				'artwork': '0 10px 40px -10px hsl(180 100 35 / 0.3)',
+				'canvas': 'inset 0 0 40px hsl(0 0 95 / 0.05)',
 			}
 		}
 	},
