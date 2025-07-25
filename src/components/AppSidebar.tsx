@@ -9,11 +9,7 @@ import {
   Users, 
   Info, 
   MessageCircle,
-  HelpCircle,
-  Settings,
-  Volume2,
-  VolumeX,
-  Search
+  HelpCircle
 } from 'lucide-react';
 import {
   Sidebar,
@@ -30,7 +26,7 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import paintedJuttayIcon from '@/assets/painted-juttay-icon.png';
+import paintedJuttayLogo from '@/assets/painted-juttay-logo.png';
 
 const navigationItems = [
   {
@@ -61,7 +57,6 @@ const navigationItems = [
 
 export function AppSidebar() {
   const { open, toggleSidebar } = useSidebar();
-  const [soundEnabled, setSoundEnabled] = React.useState(false);
   
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -73,10 +68,6 @@ export function AppSidebar() {
     }
   };
 
-  const toggleSound = () => {
-    setSoundEnabled(!soundEnabled);
-    // Add actual sound functionality here
-  };
 
   return (
     <Sidebar 
@@ -85,21 +76,20 @@ export function AppSidebar() {
       variant="sidebar"
     >
       <SidebarHeader className="border-b border-border p-4">
-        <div className="flex items-center justify-center space-x-3">
+        <div className="flex items-center justify-center">
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleSidebar}
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
           >
-            <img src={paintedJuttayIcon} alt="Painted Juttay" className="h-8 w-8" />
+            <img src={paintedJuttayLogo} alt="Painted Juttay" className="h-10 w-10" />
           </Button>
           {open && (
-            <div className="text-center">
+            <div className="text-center ml-3">
               <span className="text-foreground font-bold text-xl tracking-wider cinematic-title">
                 Painted Juttay
               </span>
-              <p className="text-xs text-muted-foreground mt-1">Where Art Meets Street</p>
             </div>
           )}
         </div>
@@ -145,34 +135,8 @@ export function AppSidebar() {
       <SidebarFooter className="border-t border-border p-4">
         <div className="space-y-2">
           {open && (
-            <>
-              <div className="flex items-center justify-between">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={toggleSound}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
-                  <span className="ml-2">Ambient Sound</span>
-                </Button>
-              </div>
-              <div className="text-xs text-muted-foreground text-center">
-                © 2024 Painted Juttay
-              </div>
-            </>
-          )}
-          {!open && (
-            <div className="flex flex-col space-y-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleSound}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                title="Toggle Ambient Sound"
-              >
-                {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
-              </Button>
+            <div className="text-xs text-muted-foreground text-center">
+              © 2024 Painted Juttay
             </div>
           )}
         </div>
