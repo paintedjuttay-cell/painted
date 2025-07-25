@@ -79,7 +79,7 @@ const Hero = () => {
           <div className={`transform transition-all duration-1500 delay-500 ${
             isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}>
-            <div className="premium-card p-10 mb-10 cursor-artwork">
+            <div className="premium-card p-10 mb-10 cursor-artwork bg-background/20 backdrop-blur-sm border border-border/20">
               <div className="flex items-center justify-center mb-6 group">
                 <Paintbrush className="h-7 w-7 text-primary mr-4 artistic-float" />
                 <span className="text-primary font-serif text-xl tracking-wider font-bold text-glow">Where Art Meets Street</span>

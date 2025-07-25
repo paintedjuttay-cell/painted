@@ -30,8 +30,7 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-// import paintedJuttayIcon from '@/assets/painted-juttay-icon.png';
-import { Brush } from 'lucide-react';
+import paintedJuttayIcon from '@/assets/painted-juttay-icon.png';
 
 const navigationItems = [
   {
@@ -83,6 +82,7 @@ export function AppSidebar() {
     <Sidebar 
       className="border-r border-border bg-background/95 backdrop-blur-md"
       collapsible="icon"
+      variant="sidebar"
     >
       <SidebarHeader className="border-b border-border p-4">
         <div className="flex items-center justify-center space-x-3">
@@ -92,7 +92,7 @@ export function AppSidebar() {
             onClick={toggleSidebar}
             className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
           >
-            <Brush className="h-8 w-8 text-primary" />
+            <img src={paintedJuttayIcon} alt="Painted Juttay" className="h-8 w-8" />
           </Button>
           {open && (
             <div className="text-center">
