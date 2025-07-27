@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] pt-16 flex items-center justify-center overflow-hidden bg-background cursor-brush">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background cursor-brush">
       {/* Cinematic Background with Canvas Texture */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-background via-primary/10 to-background">

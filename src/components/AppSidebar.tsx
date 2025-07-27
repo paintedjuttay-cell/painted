@@ -10,7 +10,8 @@ import {
   Users, 
   Info, 
   MessageCircle,
-  HelpCircle
+  HelpCircle,
+  Menu
 } from 'lucide-react';
 import {
   Sidebar,
@@ -79,20 +80,36 @@ export function AppSidebar() {
         variant="sidebar"
       >
           <SidebarHeader className="border-b border-border p-4">
-            <div className="flex items-center justify-center">
-              <img src={paintedJuttayLogo} alt="Painted Juttay" className="h-10 w-10" />
+            <div className={`flex items-center ${open ? 'justify-between' : 'justify-center'}`}>
+              <div className="flex items-center">
+                <img src={paintedJuttayLogo} alt="Painted Juttay" className="h-10 w-10" />
+                <AnimatePresence>
+                  {open && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.2, delay: 0.1 }}
+                      className="ml-3"
+                    >
+                      <span className="text-foreground font-bold text-xl tracking-wider cinematic-title">
+                        Painted Juttay
+                      </span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               <AnimatePresence>
                 {open && (
                   <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.2, delay: 0.1 }}
-                    className="text-center ml-3"
                   >
-                    <span className="text-foreground font-bold text-xl tracking-wider cinematic-title">
-                      Painted Juttay
-                    </span>
+                    <SidebarTrigger className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110">
+                      <Menu className="h-5 w-5" />
+                    </SidebarTrigger>
                   </motion.div>
                 )}
               </AnimatePresence>
