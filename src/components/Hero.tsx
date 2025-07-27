@@ -17,7 +17,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] pt-16 flex items-center justify-center overflow-hidden bg-background cursor-brush">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden cursor-brush" style={{
+      background: `
+        radial-gradient(circle at 25% 25%, hsl(255 215 0 / 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, hsl(20 184 166 / 0.02) 0%, transparent 50%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="canvas" width="3" height="3" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.3" fill="%23fafafa" opacity="0.015"/></pattern></defs><rect width="60" height="60" fill="url(%23canvas)"/></svg>'),
+        hsl(var(--background))
+      `
+    }}>
       {/* Cinematic Background with Canvas Texture */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-background via-primary/10 to-background">

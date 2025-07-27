@@ -99,21 +99,7 @@
 
 /* Gallery Art Animations & Effects */
 
-/* Canvas Texture Overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 25% 25%, hsl(255 215 0 / 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, hsl(20 184 166 / 0.02) 0%, transparent 50%),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="canvas" width="3" height="3" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.3" fill="%23fafafa" opacity="0.015"/></pattern></defs><rect width="60" height="60" fill="url(%23canvas)"/></svg>');
-  pointer-events: none;
-  z-index: 1;
-}
+/* Canvas Texture Overlay - Applied to background instead of body overlay */
 
 @keyframes paint-drip {
   0% { transform: translateY(-100%) scaleY(0); opacity: 0; }
