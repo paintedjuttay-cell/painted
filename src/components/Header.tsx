@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, User, Bell } from 'lucide-react';
+import { ShoppingBag, User, Bell, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { SidebarTrigger } from '@/components/ui/sidebar';
+import { SidebarTrigger, useSidebar } from '@/components/ui/sidebar';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { open } = useSidebar();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +22,10 @@ const Header = () => {
     }`}>
       <div className="flex items-center justify-between h-16 lg:h-20 w-full">
         {/* Left - Sidebar trigger */}
-        <div className="flex items-center">
-          <SidebarTrigger className="mr-4" />
+        <div className={`flex items-center transition-all duration-300 ${open ? 'ml-64' : 'ml-4'}`}>
+          <SidebarTrigger className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110">
+            <Menu className="h-5 w-5" />
+          </SidebarTrigger>
         </div>
 
         {/* Center - Brand name when scrolled */}
