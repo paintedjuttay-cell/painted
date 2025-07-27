@@ -20,10 +20,6 @@ const Header = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Left side - Empty space */}
-          <div className="flex items-center space-x-4">
-          </div>
-
           {/* Center - Brand name when scrolled */}
           {isScrolled && (
             <div className="absolute left-1/2 transform -translate-x-1/2">
@@ -34,7 +30,7 @@ const Header = () => {
           )}
 
           {/* Right side - User actions */}
-          <div className="flex items-center space-x-4 ml-auto">
+          <div className="flex items-center gap-4 ml-auto">
             <Button 
               variant="ghost" 
               size="icon" 
