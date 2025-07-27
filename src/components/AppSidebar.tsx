@@ -73,22 +73,11 @@ export function AppSidebar() {
 
   return (
     <TooltipProvider>
-      <motion.div
-        initial={false}
-        animate={{
-          width: open ? 240 : 64,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: [0.4, 0, 0.2, 1],
-        }}
-        className="relative"
+      <Sidebar 
+        className="border-r border-border bg-background/95 backdrop-blur-md transition-all duration-300"
+        collapsible="icon"
+        variant="sidebar"
       >
-        <Sidebar 
-          className="border-r border-border bg-background/95 backdrop-blur-md w-full"
-          collapsible="icon"
-          variant="sidebar"
-        >
           <SidebarHeader className="border-b border-border p-4">
             <div className="flex items-center justify-center">
               <Button
@@ -205,8 +194,7 @@ export function AppSidebar() {
               </AnimatePresence>
             </div>
           </SidebarFooter>
-        </Sidebar>
-      </motion.div>
+      </Sidebar>
     </TooltipProvider>
   );
 }
