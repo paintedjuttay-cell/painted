@@ -20,7 +20,7 @@ const Header = () => {
     <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 pr-4 sm:pr-6 lg:pr-8 ${
       isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'
     }`}>
-      <div className="flex items-center justify-between h-16 lg:h-20 w-full">
+      <div className="flex items-center justify-between h-12 w-full">
         {/* Left - Sidebar trigger */}
         <div className={`flex items-center transition-all duration-300 ${open ? 'ml-64' : 'ml-16'}`}>
           <SidebarTrigger className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110">

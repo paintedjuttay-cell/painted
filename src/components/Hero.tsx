@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden cursor-brush" style={{
+    <section className="relative min-h-[calc(100vh-3rem)] flex items-center justify-center overflow-hidden cursor-brush" style={{
       background: `
         radial-gradient(circle at 25% 25%, hsl(255 215 0 / 0.03) 0%, transparent 50%),
         radial-gradient(circle at 75% 75%, hsl(20 184 166 / 0.02) 0%, transparent 50%),
