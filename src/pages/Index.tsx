@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SidebarProvider } from '@/components/ui/sidebar';
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/AppSidebar';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -16,9 +16,9 @@ import CustomerSupport from '@/components/CustomerSupport';
 const Index = () => {
   return (
     <SidebarProvider defaultOpen={false}>
-      <div className="min-h-screen flex w-full bg-background">
+      <div className="min-h-screen w-full bg-background">
         <AppSidebar />
-        <main className="flex-1">
+        <SidebarInset>
           <Header />
           <div id="hero">
             <Hero />
@@ -45,7 +45,7 @@ const Index = () => {
             <CustomerSupport />
           </div>
           <Footer />
-        </main>
+        </SidebarInset>
       </div>
     </SidebarProvider>
   );

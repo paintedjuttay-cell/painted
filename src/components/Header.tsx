@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, User, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,11 @@ const Header = () => {
       isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'
     }`}>
       <div className="flex items-center justify-between h-16 lg:h-20 w-full">
+        {/* Left - Sidebar trigger */}
+        <div className="flex items-center">
+          <SidebarTrigger className="mr-4" />
+        </div>
+
         {/* Center - Brand name when scrolled */}
         {isScrolled && (
           <div className="absolute left-1/2 transform -translate-x-1/2">
