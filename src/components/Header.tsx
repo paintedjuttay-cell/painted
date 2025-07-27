@@ -17,14 +17,14 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 px-4 ${
+    <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 pr-4 sm:pr-6 lg:pr-8 ${
       isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'
     }`}>
       <div className="flex items-center justify-between h-12 w-full">
         {/* Left - Sidebar trigger */}
-        <div className="flex items-center">
-          <SidebarTrigger className="text-foreground hover:text-primary transition-all duration-200 hover:scale-105">
-            <Menu className="h-4 w-4" />
+        <div className={`flex items-center transition-all duration-300 ${open ? 'ml-64' : 'ml-16'}`}>
+          <SidebarTrigger className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110">
+            <Menu className="h-5 w-5" />
           </SidebarTrigger>
         </div>
 
@@ -38,27 +38,27 @@ const Header = () => {
         )}
 
         {/* Right side - User actions */}
-        <div className="flex items-center gap-2 ml-auto">
+        <div className="flex items-center gap-4 ml-auto">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-8 w-8 text-foreground hover:text-primary transition-all duration-200 hover:scale-105"
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110 group"
           >
-            <Bell className="h-4 w-4" />
+            <Bell className="h-6 w-6 group-hover:animate-pulse" />
           </Button>
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-8 w-8 text-foreground hover:text-primary transition-all duration-200 hover:scale-105"
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110 group"
           >
-            <ShoppingBag className="h-4 w-4" />
+            <ShoppingBag className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
           </Button>
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-8 w-8 text-foreground hover:text-primary transition-all duration-200 hover:scale-105"
+            className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110 group"
           >
-            <User className="h-4 w-4" />
+            <User className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
           </Button>
         </div>
       </div>
