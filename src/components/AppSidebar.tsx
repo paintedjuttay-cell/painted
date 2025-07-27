@@ -80,14 +80,7 @@ export function AppSidebar() {
       >
           <SidebarHeader className="border-b border-border p-4">
             <div className="flex items-center justify-center">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleSidebar}
-                className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-              >
-                <img src={paintedJuttayLogo} alt="Painted Juttay" className="h-10 w-10" />
-              </Button>
+              <img src={paintedJuttayLogo} alt="Painted Juttay" className="h-10 w-10" />
               <AnimatePresence>
                 {open && (
                   <motion.div
