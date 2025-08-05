@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "title": "Painted {Juttay}",
+        "subtitle": "Where Art Meets Street",
+        "description": "Hand-painted sneakers that tell stories. Each pair is a canvas, each step is a statement. Premium custom art sneakers by Pakistani artists.",
+        "show_badge": true,
+        "badge_text": "LIMITED DROPS",
+        "primary_button_label": "Explore The Gallery",
+        "primary_button_link": "#collections",
+        "secondary_button_label": "Commission Artwork",
+        "secondary_button_link": "/pages/custom-order",
+        "show_scroll_indicator": true,
+        "scroll_text": "Gallery Viewing Invitation"
+      }
+    },
+    "collections": {
+      "type": "collections",
+      "settings": {
+        "title": "Artisan Collections",
+        "subtitle": "Discover our curated collections of hand-painted masterpieces, each telling a unique story through art and craftsmanship.",
+        "show_filters": true,
+        "show_view_all": true,
+        "view_all_text": "View All Collections"
+      }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "settings": {
+        "product": "",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "media_position": "left",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "about": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Artisan Craftsmanship",
+            "text": "<p>Every pair is meticulously hand-painted by skilled Pakistani artists, ensuring each sneaker is a unique work of art.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>We use only the finest leather and premium sneaker bases to ensure durability and comfort.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "Custom Designs",
+            "text": "<p>Commission a completely custom design that tells your story and reflects your personal style.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "settings": {
+        "title": "Why Choose Painted Juttay",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "Learn More",
+        "button_link": "/pages/about",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "collections", 
+    "featured-product",
+    "about"
+  ]
+}

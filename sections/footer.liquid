@@ -1,0 +1,529 @@
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .footer {
+    background: #1e293b;
+    color: #e2e8f0;
+  }
+  
+  .footer-main {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .footer-container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-brand {
+    max-width: 20rem;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-logo-icon {
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .footer-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .footer-description {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-social {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-link:hover {
+    background: #8b5cf6;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .footer-section h3 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #8b5cf6;
+  }
+  
+  .footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: #94a3b8;
+  }
+  
+  .footer-contact-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #8b5cf6;
+  }
+  
+  .newsletter-form {
+    margin-top: 1rem;
+  }
+  
+  .newsletter-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    background: #374151;
+    color: white;
+    font-size: 0.875rem;
+  }
+  
+  .newsletter-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .newsletter-input:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+  }
+  
+  .newsletter-btn {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  }
+  
+  .newsletter-disclaimer {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1.4;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #374151;
+    padding: 1.5rem 1rem;
+  }
+  
+  .footer-bottom-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-copyright {
+    color: #94a3b8;
+    font-size: 0.875rem;
+  }
+  
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .footer-legal a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-legal a:hover {
+    color: #8b5cf6;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .newsletter-input-group {
+      flex-direction: column;
+    }
+    
+    .footer-bottom-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-legal {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+{%- endstyle -%}
+
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Brand Section -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">PJ</div>
+            <span class="footer-logo-text">{{ section.settings.brand_name | default: shop.name }}</span>
+          </div>
+          <p class="footer-description">
+            {{ section.settings.description | default: "Where art meets street. Hand-painted sneakers that tell stories, crafted by talented Pakistani artists with passion and precision." }}
+          </p>
+          <div class="footer-social">
+            {%- if section.settings.instagram_url != blank -%}
+              <a href="{{ section.settings.instagram_url }}" class="social-link" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.facebook_url != blank -%}
+              <a href="{{ section.settings.facebook_url }}" class="social-link" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.twitter_url != blank -%}
+              <a href="{{ section.settings.twitter_url }}" class="social-link" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.tiktok_url != blank -%}
+              <a href="{{ section.settings.tiktok_url }}" class="social-link" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3>{{ section.settings.quick_links_title | default: "Quick Links" }}</h3>
+          <ul class="footer-links">
+            {%- for link in linklists[section.settings.quick_links_menu].links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- else -%}
+              <li><a href="{{ routes.collections_url }}">Collections</a></li>
+              <li><a href="{{ routes.search_url }}">Custom Orders</a></li>
+              <li><a href="/pages/about">About Us</a></li>
+              <li><a href="/pages/artists">Our Artists</a></li>
+              <li><a href="/pages/gallery">Gallery</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="footer-section">
+          <h3>{{ section.settings.customer_service_title | default: "Customer Service" }}</h3>
+          <ul class="footer-links">
+            {%- for link in linklists[section.settings.customer_service_menu].links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- else -%}
+              <li><a href="/pages/shipping">Shipping Info</a></li>
+              <li><a href="/pages/returns">Returns & Exchanges</a></li>
+              <li><a href="/pages/sizing">Size Guide</a></li>
+              <li><a href="/pages/care">Care Instructions</a></li>
+              <li><a href="/pages/faq">FAQ</a></li>
+              <li><a href="/pages/contact">Contact Us</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <!-- Contact & Newsletter -->
+        <div class="footer-section">
+          <h3>{{ section.settings.contact_title | default: "Get In Touch" }}</h3>
+          
+          {%- if section.settings.phone != blank -%}
+            <div class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>{{ section.settings.phone }}</span>
+            </div>
+          {%- endif -%}
+          
+          {%- if section.settings.email != blank -%}
+            <div class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>{{ section.settings.email }}</span>
+            </div>
+          {%- endif -%}
+          
+          {%- if section.settings.address != blank -%}
+            <div class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>{{ section.settings.address }}</span>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.show_newsletter -%}
+            <div class="newsletter-form">
+              <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1rem;">{{ section.settings.newsletter_title | default: "Stay Updated" }}</h4>
+              {% form 'customer', class: 'newsletter-form' %}
+                <div class="newsletter-input-group">
+                  <input 
+                    type="email" 
+                    name="contact[email]" 
+                    class="newsletter-input" 
+                    placeholder="{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}"
+                    required
+                  >
+                  <button type="submit" class="newsletter-btn">Subscribe</button>
+                </div>
+              {% endform %}
+              <p class="newsletter-disclaimer">
+                {{ section.settings.newsletter_disclaimer | default: "Get exclusive access to new drops, artist features, and special offers." }}
+              </p>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <div class="footer-copyright">
+        © {{ 'now' | date: '%Y' }} {{ section.settings.brand_name | default: shop.name }}. {{ section.settings.copyright_text | default: "All rights reserved." }}
+      </div>
+      <div class="footer-legal">
+        {%- for link in linklists[section.settings.legal_menu].links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- else -%}
+          <a href="/pages/privacy-policy">Privacy Policy</a>
+          <a href="/pages/terms-of-service">Terms of Service</a>
+          <a href="/pages/cookie-policy">Cookie Policy</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "text",
+      "id": "quick_links_title",
+      "label": "Quick links title",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links_menu",
+      "label": "Quick links menu"
+    },
+    {
+      "type": "text",
+      "id": "customer_service_title",
+      "label": "Customer service title",
+      "default": "Customer Service"
+    },
+    {
+      "type": "link_list",
+      "id": "customer_service_menu",
+      "label": "Customer service menu"
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Legal menu"
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact section title",
+      "default": "Get In Touch"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone number"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email address"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter signup",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter title",
+      "default": "Stay Updated"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Newsletter placeholder text",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_disclaimer",
+      "label": "Newsletter disclaimer"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "All rights reserved."
+    }
+  ]
+}
+{% endschema %}
