@@ -1,0 +1,254 @@
+{{ 'theme.css' | asset_url | stylesheet_tag }}
+
+<div class="container">
+  <!-- Collection Header -->
+  <div class="text-center p-8">
+    <h1 class="text-4xl font-bold mb-4 cinematic-title">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <p class="text-lg mb-6">{{ collection.description }}</p>
+    {% endif %}
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="flex justify-between items-center mb-8">
+    <div class="flex gap-4">
+      <button class="btn btn-outline filter-btn" data-filter="all">All</button>
+      <button class="btn btn-outline filter-btn" data-filter="featured">Featured</button>
+      <button class="btn btn-outline filter-btn" data-filter="new">New Arrivals</button>
+      <button class="btn btn-outline filter-btn" data-filter="sale">On Sale</button>
+    </div>
+    
+    <!-- Sort Dropdown -->
+    <div class="relative">
+      <select class="shopify-select" onchange="sortProducts(this.value)">
+        <option value="manual">Featured</option>
+        <option value="price-ascending">Price: Low to High</option>
+        <option value="price-descending">Price: High to Low</option>
+        <option value="title-ascending">Name: A-Z</option>
+        <option value="title-descending">Name: Z-A</option>
+        <option value="created-descending">Newest First</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-grid">
+    {% paginate collection.products by 12 %}
+      {% for product in collection.products %}
+        <div class="card product-card animate-fade-in" 
+             data-featured="{% if product.tags contains 'featured' %}true{% else %}false{% endif %}"
+             data-new="{% if product.tags contains 'new' %}true{% else %}false{% endif %}"
+             data-sale="{% if product.compare_at_price > product.price %}true{% else %}false{% endif %}">
+          
+          <!-- Product Image -->
+          <div class="relative overflow-hidden">
+            {% if product.featured_image %}
+              <img src="{{ product.featured_image | image_url: width: 400 }}" 
+                   alt="{{ product.featured_image.alt | escape }}"
+                   class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+            {% else %}
+              <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-500">No image</span>
+              </div>
+            {% endif %}
+
+            <!-- Product Badges -->
+            {% if product.tags contains 'featured' %}
+              <div class="absolute top-2 left-2 bg-yellow-500 text-black px-2 py-1 text-xs rounded">
+                Featured
+              </div>
+            {% endif %}
+            
+            {% if product.tags contains 'new' %}
+              <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 text-xs rounded">
+                New
+              </div>
+            {% endif %}
+
+            {% if product.compare_at_price > product.price %}
+              <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 text-xs rounded">
+                Sale
+              </div>
+            {% endif %}
+
+            {% unless product.available %}
+              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <span class="text-white font-bold">Sold Out</span>
+              </div>
+            {% endunless %}
+
+            <!-- Quick View Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
+              <a href="{{ product.url }}" class="btn btn-primary">Quick View</a>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">
+              <a href="{{ product.url }}" class="hover:text-primary transition-colors">
+                {{ product.title }}
+              </a>
+            </h3>
+            
+            {% if product.vendor %}
+              <p class="text-sm text-muted-foreground mb-2">by {{ product.vendor }}</p>
+            {% endif %}
+
+            <div class="flex justify-between items-center">
+              <div class="price-container">
+                {% if product.compare_at_price > product.price %}
+                  <span class="text-red-500 font-bold">{{ product.price | money }}</span>
+                  <span class="text-sm text-muted-foreground line-through ml-2">{{ product.compare_at_price | money }}</span>
+                {% else %}
+                  <span class="font-bold">{{ product.price | money }}</span>
+                {% endif %}
+              </div>
+              
+              {% if product.available %}
+                <form action="/cart/add" method="post" enctype="multipart/form-data" class="add-to-cart-form">
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <button type="submit" class="btn btn-primary btn-sm">Add to Cart</button>
+                </form>
+              {% else %}
+                <button class="btn btn-outline btn-sm" disabled>Sold Out</button>
+              {% endif %}
+            </div>
+
+            <!-- Product Description Preview -->
+            {% if product.description != blank %}
+              <p class="text-sm text-muted-foreground mt-2 line-clamp-2">
+                {{ product.description | strip_html | truncatewords: 15 }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Pagination -->
+      {% if paginate.pages > 1 %}
+        <div class="flex justify-center mt-12 col-span-full">
+          <nav class="flex gap-2">
+            {% if paginate.previous %}
+              <a href="{{ paginate.previous.url }}" class="btn btn-outline">← Previous</a>
+            {% endif %}
+
+            {% for part in paginate.parts %}
+              {% if part.is_link %}
+                <a href="{{ part.url }}" class="btn btn-outline">{{ part.title }}</a>
+              {% else %}
+                {% if part.title == paginate.current_page %}
+                  <span class="btn btn-primary">{{ part.title }}</span>
+                {% else %}
+                  <span class="btn btn-outline">{{ part.title }}</span>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}" class="btn btn-outline">Next →</a>
+            {% endif %}
+          </nav>
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</div>
+
+<script>
+// Filter Products
+function filterProducts(filter) {
+  const products = document.querySelectorAll('.product-card');
+  
+  products.forEach(product => {
+    let show = false;
+    
+    if (filter === 'all') {
+      show = true;
+    } else if (filter === 'featured' && product.dataset.featured === 'true') {
+      show = true;
+    } else if (filter === 'new' && product.dataset.new === 'true') {
+      show = true;
+    } else if (filter === 'sale' && product.dataset.sale === 'true') {
+      show = true;
+    }
+    
+    product.style.display = show ? 'block' : 'none';
+  });
+}
+
+// Filter Button Event Listeners
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    // Remove active class from all buttons
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('btn-primary'));
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('btn-outline'));
+    
+    // Add active class to clicked button
+    e.target.classList.remove('btn-outline');
+    e.target.classList.add('btn-primary');
+    
+    // Filter products
+    filterProducts(e.target.dataset.filter);
+  });
+});
+
+// Sort Products
+function sortProducts(sortValue) {
+  const url = new URL(window.location);
+  url.searchParams.set('sort_by', sortValue);
+  window.location = url;
+}
+
+// Add to Cart AJAX
+document.querySelectorAll('.add-to-cart-form').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const button = form.querySelector('button');
+    const originalText = button.textContent;
+    
+    button.textContent = 'Adding...';
+    button.disabled = true;
+    
+    try {
+      const response = await fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        button.textContent = 'Added!';
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+        }, 2000);
+        
+        // Update cart count if you have one
+        updateCartCount();
+      } else {
+        throw new Error('Failed to add to cart');
+      }
+    } catch (error) {
+      button.textContent = 'Error';
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 2000);
+    }
+  });
+});
+
+// Update cart count (implement based on your header)
+function updateCartCount() {
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      const cartCount = document.querySelector('.cart-count');
+      if (cartCount) {
+        cartCount.textContent = cart.item_count;
+      }
+    });
+}
+</script>
