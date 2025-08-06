@@ -14,11 +14,8 @@ const CustomOrder = () => {
   const [basePrice] = useState(299);
   const [totalPrice, setTotalPrice] = useState(basePrice);
 
-  const shoeBase = [
-    { id: 'af1', name: 'Air Force 1', price: 0, image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772' },
-    { id: 'vans', name: 'Vans Old Skool', price: 25, image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77' },
-    { id: 'converse', name: 'Converse Chuck', price: 15, image: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2' },
-  ];
+  // Shoe base options will be populated with your Juttay styles
+  const shoeBase = [];
 
   const themes = [
     { id: 'blood', name: 'Bloody Series', price: 50, description: 'Bold crimson flows with black accents' },
@@ -80,21 +77,27 @@ const CustomOrder = () => {
                   <h3 className="text-xl font-bold text-foreground">Choose Your Canvas</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {shoeBase.map((shoe) => (
-                    <div
-                      key={shoe.id}
-                      onClick={() => setSelectedBase(shoe.id)}
-                      className={`relative cursor-pointer border-2 rounded-lg overflow-hidden transition-all duration-200 ${
-                        selectedBase === shoe.id ? 'border-red-500 scale-105' : 'border-gray-600 hover:border-gray-400'
-                      }`}
-                    >
-                      <img src={shoe.image} alt={shoe.name} className="w-full h-32 object-cover" />
-                      <div className="p-3 bg-gray-800">
-                        <h4 className="text-white font-semibold">{shoe.name}</h4>
-                        <p className="text-gray-400 text-sm">+${shoe.price}</p>
+                  {shoeBase.length > 0 ? (
+                    shoeBase.map((shoe) => (
+                      <div
+                        key={shoe.id}
+                        onClick={() => setSelectedBase(shoe.id)}
+                        className={`relative cursor-pointer border-2 rounded-lg overflow-hidden transition-all duration-200 ${
+                          selectedBase === shoe.id ? 'border-red-500 scale-105' : 'border-gray-600 hover:border-gray-400'
+                        }`}
+                      >
+                        <img src={shoe.image} alt={shoe.name} className="w-full h-32 object-cover" />
+                        <div className="p-3 bg-gray-800">
+                          <h4 className="text-white font-semibold">{shoe.name}</h4>
+                          <p className="text-gray-400 text-sm">+${shoe.price}</p>
+                        </div>
                       </div>
+                    ))
+                  ) : (
+                    <div className="col-span-3 text-center py-8 border-2 border-dashed border-gray-600 rounded-lg">
+                      <p className="text-gray-400">Juttay base options coming soon</p>
                     </div>
-                  ))}
+                  )}
                 </div>
               </CardContent>
             </Card>

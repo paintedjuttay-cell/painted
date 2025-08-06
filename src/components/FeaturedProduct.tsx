@@ -8,26 +8,17 @@ const FeaturedProduct = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
 
+  // Featured product data will be populated with your Painted Juttay
   const product = {
-    name: "Crimson Dreams",
-    artist: "Zara Khan",
-    price: 349,
-    originalPrice: 399,
-    description: "A haunting masterpiece featuring flowing crimson brushstrokes that seem to drip with emotion. This piece represents the passion and intensity of street art culture.",
-    images: [
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772",
-      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2",
-      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a"
-    ],
-    features: [
-      "Hand-painted with premium acrylic paints",
-      "Waterproof protective coating",
-      "Limited edition (1 of 10)",
-      "Signed by the artist",
-      "Includes authenticity certificate"
-    ],
-    sizes: ["UK 6", "UK 7", "UK 8", "UK 9", "UK 10", "UK 11"],
-    inStock: true
+    name: "Coming Soon",
+    artist: "Painted Juttay Artist",
+    price: 0,
+    originalPrice: 0,
+    description: "Our featured Painted Juttay product will be showcased here soon.",
+    images: [],
+    features: [],
+    sizes: [],
+    inStock: false
   };
 
   return (
@@ -36,59 +27,70 @@ const FeaturedProduct = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center canvas-enter">
           {/* Product Images */}
           <div className="space-y-4">
-            {/* Main Image */}
-            <div className="relative group overflow-hidden rounded-lg">
-              <img
-                src={product.images[currentImage]}
-                alt={product.name}
-                className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute top-4 right-4 space-y-2">
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30"
-                  onClick={() => setIsLiked(!isLiked)}
-                >
-                  <Heart className={`h-4 w-4 ${isLiked ? 'fill-red-500 text-red-500' : 'text-white'}`} />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
-                >
-                  <Share2 className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
-                >
-                  <Eye className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Thumbnail Images */}
-            <div className="flex space-x-4">
-              {product.images.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                    currentImage === index 
-                      ? 'border-red-500 scale-105' 
-                      : 'border-gray-600 hover:border-gray-400'
-                  }`}
-                >
+            {product.images.length > 0 ? (
+              <>
+                {/* Main Image */}
+                <div className="relative group overflow-hidden rounded-lg">
                   <img
-                    src={image}
-                    alt={`${product.name} view ${index + 1}`}
-                    className="w-full h-20 object-cover"
+                    src={product.images[currentImage]}
+                    alt={product.name}
+                    className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                </button>
-              ))}
-            </div>
+                  <div className="absolute top-4 right-4 space-y-2">
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="bg-white/20 backdrop-blur-sm hover:bg-white/30"
+                      onClick={() => setIsLiked(!isLiked)}
+                    >
+                      <Heart className={`h-4 w-4 ${isLiked ? 'fill-red-500 text-red-500' : 'text-white'}`} />
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
+                    >
+                      <Share2 className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
+                    >
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Thumbnail Images */}
+                <div className="flex space-x-4">
+                  {product.images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImage(index)}
+                      className={`flex-1 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                        currentImage === index 
+                          ? 'border-red-500 scale-105' 
+                          : 'border-gray-600 hover:border-gray-400'
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`${product.name} view ${index + 1}`}
+                        className="w-full h-20 object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="w-full h-96 lg:h-[500px] bg-gray-800 rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <h3 className="text-white text-xl font-bold mb-2">Featured Product</h3>
+                  <p className="text-gray-400">Your featured Painted Juttay will be displayed here</p>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
