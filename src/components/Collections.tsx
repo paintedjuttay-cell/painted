@@ -5,8 +5,90 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Collections = () => {
-  // Collections data will be populated with your Painted Juttay shoes
-  const collections = [];
+  // Collections data with your actual Painted Juttay shoes
+  const collections = [
+    {
+      id: 1,
+      name: "BMW Edition",
+      image: "/lovable-uploads/7cb5a7bd-0394-4824-ba62-fc52889f76b4.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay",
+      featured: true
+    },
+    {
+      id: 2,
+      name: "Horror Series",
+      image: "/lovable-uploads/cfd57b00-3b18-428c-a15b-c6b9f06f42ca.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 3,
+      name: "Character Collection",
+      image: "/lovable-uploads/62cf5f4d-1cba-4fe6-b457-4a47dca26fb2.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 4,
+      name: "Ocean Wave",
+      image: "/lovable-uploads/883b383a-b197-4edf-bcff-2b364bdbb171.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 5,
+      name: "Floral Garden",
+      image: "/lovable-uploads/9651a011-b4ae-4b0f-9e9a-e3be58e91ad6.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 6,
+      name: "Butterfly Dreams",
+      image: "/lovable-uploads/16b42d76-346a-470d-8d41-c7159474a7a6.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 7,
+      name: "Checkered Pattern",
+      image: "/lovable-uploads/2770e58f-d5ea-455f-93a5-ef7adcec50e9.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 8,
+      name: "Japanese Wave",
+      image: "/lovable-uploads/add0f869-c969-4a51-997a-1961779353e4.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 9,
+      name: "Galaxy Collection",
+      image: "/lovable-uploads/44585051-d82c-4467-8d29-6618d6a3d1be.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    },
+    {
+      id: 10,
+      name: "Polka Dots",
+      image: "/lovable-uploads/0cb4fd7a-434f-4ae6-9bcd-ea003961c405.png",
+      price: "From $299",
+      description: "Custom painted design",
+      artist: "Painted Juttay"
+    }
+  ];
 
   return (
     <section id="collections" className="py-20 bg-black">

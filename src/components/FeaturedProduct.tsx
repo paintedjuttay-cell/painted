@@ -8,17 +8,26 @@ const FeaturedProduct = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
 
-  // Featured product data will be populated with your Painted Juttay
+  // Featured product data with your actual Painted Juttay
   const product = {
-    name: "Coming Soon",
-    artist: "Painted Juttay Artist",
-    price: 0,
-    originalPrice: 0,
-    description: "Our featured Painted Juttay product will be showcased here soon.",
-    images: [],
-    features: [],
-    sizes: [],
-    inStock: false
+    name: "BMW Edition",
+    artist: "Painted Juttay",
+    price: 299,
+    originalPrice: 399,
+    description: "Custom painted sneakers with unique artistic designs.",
+    images: [
+      "/lovable-uploads/7cb5a7bd-0394-4824-ba62-fc52889f76b4.png",
+      "/lovable-uploads/cfd57b00-3b18-428c-a15b-c6b9f06f42ca.png",
+      "/lovable-uploads/62cf5f4d-1cba-4fe6-b457-4a47dca26fb2.png"
+    ],
+    features: [
+      "Hand-painted custom design",
+      "Premium quality materials",
+      "Unique artistic artwork",
+      "Made to order"
+    ],
+    sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
+    inStock: true
   };
 
   return (

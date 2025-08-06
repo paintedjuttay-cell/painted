@@ -14,8 +14,33 @@ const CustomOrder = () => {
   const [basePrice] = useState(299);
   const [totalPrice, setTotalPrice] = useState(basePrice);
 
-  // Shoe base options will be populated with your Juttay styles
-  const shoeBase = [];
+  // Shoe base options with actual painted examples
+  const shoeBase = [
+    {
+      id: "1",
+      name: "Air Force 1",
+      image: "/lovable-uploads/7cb5a7bd-0394-4824-ba62-fc52889f76b4.png",
+      price: 0
+    },
+    {
+      id: "2",
+      name: "Air Force 1",
+      image: "/lovable-uploads/cfd57b00-3b18-428c-a15b-c6b9f06f42ca.png",
+      price: 0
+    },
+    {
+      id: "3",
+      name: "Air Force 1",
+      image: "/lovable-uploads/62cf5f4d-1cba-4fe6-b457-4a47dca26fb2.png",
+      price: 0
+    },
+    {
+      id: "4",
+      name: "Air Force 1",
+      image: "/lovable-uploads/883b383a-b197-4edf-bcff-2b364bdbb171.png",
+      price: 0
+    }
+  ];
 
   const themes = [
     { id: 'blood', name: 'Bloody Series', price: 50, description: 'Bold crimson flows with black accents' },
