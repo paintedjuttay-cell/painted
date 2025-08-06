@@ -5,88 +5,47 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Collections = () => {
-  // Collections data with your actual Painted Juttay shoes
+  // Collections with your painted shoes
   const collections = [
     {
       id: 1,
-      name: "BMW Edition",
-      image: "/lovable-uploads/7cb5a7bd-0394-4824-ba62-fc52889f76b4.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay",
-      featured: true
+      image: "/lovable-uploads/7cb5a7bd-0394-4824-ba62-fc52889f76b4.png"
     },
     {
       id: 2,
-      name: "Horror Series",
-      image: "/lovable-uploads/cfd57b00-3b18-428c-a15b-c6b9f06f42ca.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/cfd57b00-3b18-428c-a15b-c6b9f06f42ca.png"
     },
     {
       id: 3,
-      name: "Character Collection",
-      image: "/lovable-uploads/62cf5f4d-1cba-4fe6-b457-4a47dca26fb2.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/62cf5f4d-1cba-4fe6-b457-4a47dca26fb2.png"
     },
     {
       id: 4,
-      name: "Ocean Wave",
-      image: "/lovable-uploads/883b383a-b197-4edf-bcff-2b364bdbb171.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/883b383a-b197-4edf-bcff-2b364bdbb171.png"
     },
     {
       id: 5,
-      name: "Floral Garden",
-      image: "/lovable-uploads/9651a011-b4ae-4b0f-9e9a-e3be58e91ad6.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/9651a011-b4ae-4b0f-9e9a-e3be58e91ad6.png"
     },
     {
       id: 6,
-      name: "Butterfly Dreams",
-      image: "/lovable-uploads/16b42d76-346a-470d-8d41-c7159474a7a6.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/16b42d76-346a-470d-8d41-c7159474a7a6.png"
     },
     {
       id: 7,
-      name: "Checkered Pattern",
-      image: "/lovable-uploads/2770e58f-d5ea-455f-93a5-ef7adcec50e9.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/2770e58f-d5ea-455f-93a5-ef7adcec50e9.png"
     },
     {
       id: 8,
-      name: "Japanese Wave",
-      image: "/lovable-uploads/add0f869-c969-4a51-997a-1961779353e4.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/add0f869-c969-4a51-997a-1961779353e4.png"
     },
     {
       id: 9,
-      name: "Galaxy Collection",
-      image: "/lovable-uploads/44585051-d82c-4467-8d29-6618d6a3d1be.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/44585051-d82c-4467-8d29-6618d6a3d1be.png"
     },
     {
       id: 10,
-      name: "Polka Dots",
-      image: "/lovable-uploads/0cb4fd7a-434f-4ae6-9bcd-ea003961c405.png",
-      price: "From $299",
-      description: "Custom painted design",
-      artist: "Painted Juttay"
+      image: "/lovable-uploads/0cb4fd7a-434f-4ae6-9bcd-ea003961c405.png"
     }
   ];
 
@@ -106,57 +65,19 @@ const Collections = () => {
         {/* Collections Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {collections.length > 0 ? (
-            collections.map((collection, index) => (
+            collections.map((collection) => (
               <Card 
                 key={collection.id} 
-                className={`shoe-card bg-gray-900 border-gray-800 overflow-hidden group cursor-pointer ${
-                  collection.featured ? 'md:col-span-2 lg:col-span-2' : ''
-                }`}
+                className="shoe-card bg-gray-900 border-gray-800 overflow-hidden group cursor-pointer"
               >
                 <div className="relative overflow-hidden">
                   <img
                     src={collection.image}
-                    alt={collection.name}
+                    alt={`Painted Juttay ${collection.id}`}
                     className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  {collection.featured && (
-                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                      <Star className="h-3 w-3" fill="currentColor" />
-                      Featured
-                    </div>
-                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Hover Content */}
-                  <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white w-full">
-                      View Collection
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
                 </div>
-                
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-serif text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-200">
-                      {collection.name}
-                    </h3>
-                    <span className="text-red-500 font-semibold text-sm">
-                      {collection.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-400 text-sm mb-3">
-                    {collection.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">
-                      by {collection.artist}
-                    </span>
-                    <Button variant="ghost" size="sm" className="text-red-500 hover:text-red-400 p-0">
-                      Learn More →
-                    </Button>
-                  </div>
-                </CardContent>
               </Card>
             ))
           ) : (
