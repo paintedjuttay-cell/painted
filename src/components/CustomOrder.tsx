@@ -33,8 +33,8 @@ const CustomOrder = () => {
 
   const artists = [
     { id: 'rabail', name: 'Rabail Ali Zaidi', style: 'Multidisciplinary & Narrative', fee: 0 },
-    { id: 'sarah', name: 'Sarah Maqsood', style: 'Ink Illustrations', fee: 25 },
-    { id: 'kharazmi', name: 'The Kharazmi Sisters', style: 'Handicrafts & Digital', fee: 50 },
+    { id: 'sarah', name: 'Sarah Maqsood', style: 'Ink Illustrations', fee: 0 },
+    { id: 'kharazmi', name: 'The Kharazmi Sisters', style: 'Handicrafts & Digital', fee: 0 },
     { id: 'random', name: 'Surprise Me!', style: 'Best Match', fee: 0 },
   ];
 

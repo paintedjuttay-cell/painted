@@ -75,18 +75,6 @@ const ArtistsSection = () => {
           )}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="inline-block p-8 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
-            <h3 className="text-2xl font-bold mb-4">Join Our Artist Community</h3>
-            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              Are you a Pakistani artist looking to showcase your work on custom sneakers? We'd love to collaborate.
-            </p>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Apply as Artist
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );

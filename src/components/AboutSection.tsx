@@ -28,12 +28,6 @@ const AboutSection = () => {
     }
   ];
 
-  const stats = [
-    { number: "500+", label: "Custom Pieces Created" },
-    { number: "50+", label: "Pakistani Artists" },
-    { number: "25+", label: "Countries Shipped" },
-    { number: "98%", label: "Customer Satisfaction" }
-  ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -84,21 +78,6 @@ const AboutSection = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-8 mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary cinematic-title">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* The Process */}
         <div className="text-center mb-16">
