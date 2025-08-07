@@ -33,70 +33,26 @@ const ArtistsSection = () => {
           </p>
         </div>
 
-        {/* Artists Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Artist Information */}
+        <div className="max-w-4xl mx-auto">
           {artists.length > 0 ? (
             artists.map((artist) => (
-              <Card key={artist.id} className="premium-card group cursor-pointer">
-                <CardContent className="p-0">
-                  {/* Artist Image */}
-                  <div className="relative overflow-hidden rounded-t-lg h-64">
-                    <img
-                      src={artist.image}
-                      alt={artist.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    
-                    {/* Featured Badge */}
-                    {artist.featured && (
-                      <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
-                        <Award className="h-3 w-3 mr-1" />
-                        Featured Artist
-                      </Badge>
-                    )}
-
-                    {/* Location */}
-                    <div className="absolute bottom-4 left-4 flex items-center text-white">
-                      <MapPin className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{artist.location}</span>
-                    </div>
-                  </div>
-
-                  {/* Artist Info */}
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold text-foreground">{artist.name}</h3>
-                      <Badge variant="outline" className="text-xs">
-                        <Palette className="h-3 w-3 mr-1" />
-                        {artist.piecesCount} pieces
-                      </Badge>
-                    </div>
-
-                    <p className="text-sm text-primary mb-2 font-medium">
-                      {artist.specialty}
-                    </p>
-
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                      {artist.bio}
-                    </p>
-
-                    {/* Actions */}
-                    <div className="flex items-center justify-between">
-                      <Button variant="outline" size="sm" className="text-xs">
-                        <Instagram className="h-3 w-3 mr-1" />
-                        {artist.instagram}
-                      </Button>
-                      <Button size="sm" className="bg-primary hover:bg-primary/90">
-                        View Gallery
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={artist.id} className="bg-card rounded-lg border p-8 text-center">
+                <h3 className="text-2xl font-bold text-foreground mb-2">{artist.name}</h3>
+                <p className="text-lg text-primary mb-4 font-medium">
+                  {artist.specialty}
+                </p>
+                <div className="flex items-center justify-center mb-4">
+                  <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <span className="text-muted-foreground">{artist.location}</span>
+                </div>
+                <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                  {artist.bio}
+                </p>
+              </div>
             ))
           ) : (
-            <div className="col-span-full text-center py-20">
+            <div className="text-center py-20">
               <h3 className="text-2xl font-bold mb-4">Meet Our Artists</h3>
               <p className="text-muted-foreground">Our talented Painted Juttay artists will be featured here.</p>
             </div>
