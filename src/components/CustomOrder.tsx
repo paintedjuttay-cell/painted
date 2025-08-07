@@ -32,10 +32,10 @@ const CustomOrder = () => {
   ];
 
   const artists = [
-    { id: 'zara', name: 'Zara Khan', specialty: 'Crimson & Abstract', fee: 0 },
-    { id: 'ahmed', name: 'Ahmed Ali', specialty: 'Florals & Nature', fee: 25 },
-    { id: 'fatima', name: 'Fatima Sheikh', specialty: 'Anime & Pop Culture', fee: 50 },
-    { id: 'random', name: 'Surprise Me!', specialty: 'Best Match for Your Vision', fee: 0 },
+    { id: 'rabail', name: 'Rabail Ali Zaidi', fee: 0 },
+    { id: 'sarah', name: 'Sarah Maqsood', fee: 25 },
+    { id: 'kharazmi', name: 'The Kharazmi Sisters', fee: 50 },
+    { id: 'random', name: 'Surprise Me!', fee: 0 },
   ];
 
   const updatePrice = () => {
@@ -141,13 +141,12 @@ const CustomOrder = () => {
                         selectedArtist === artist.id ? 'border-red-500 bg-red-500/10' : 'border-gray-600 hover:border-gray-400'
                       }`}
                     >
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-center">
                         <h4 className="text-white font-semibold">{artist.name}</h4>
                         <span className="text-red-500 font-bold">
                           {artist.fee > 0 ? `+$${artist.fee}` : 'Free'}
                         </span>
                       </div>
-                      <p className="text-gray-400 text-sm">{artist.specialty}</p>
                     </div>
                   ))}
                 </div>
