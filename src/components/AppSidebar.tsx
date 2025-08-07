@@ -38,7 +38,6 @@ const navigationItems = [
       { title: "Home", icon: Home, href: "#hero" },
       { title: "Gallery", icon: Palette, href: "#collections" },
       { title: "Custom Order", icon: ShoppingBag, href: "#custom-order" },
-      { title: "The Vault", icon: Gavel, href: "#vault", badge: "Live" },
     ]
   },
   {
@@ -46,7 +45,6 @@ const navigationItems = [
     items: [
       { title: "Artists", icon: Users, href: "#artists" },
       { title: "About", icon: Info, href: "#about" },
-      { title: "Featured", icon: Star, href: "#featured" },
     ]
   },
   {
@@ -151,14 +149,7 @@ export function AppSidebar() {
                                 className="text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 cursor-pointer group relative"
                               >
                                 <item.icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
-                                <div className="flex items-center justify-between w-full">
-                                  <span className="font-medium">{item.title}</span>
-                                  {item.badge && (
-                                    <span className="px-2 py-1 text-xs bg-accent text-accent-foreground rounded-full animate-pulse">
-                                      {item.badge}
-                                    </span>
-                                  )}
-                                </div>
+                                 <span className="font-medium">{item.title}</span>
                               </SidebarMenuButton>
                             </motion.div>
                           )}
