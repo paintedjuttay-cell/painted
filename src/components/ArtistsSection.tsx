@@ -6,7 +6,19 @@ import { MapPin, Instagram, Award, Palette } from 'lucide-react';
 
 const ArtistsSection = () => {
   // Artist profiles will be populated with your real Painted Juttay artists
-  const artists = [];
+  const artists = [
+    {
+      id: 1,
+      name: "Rabail Ali Zaidi",
+      specialty: "Multidisciplinary Artist & Wearable Art",
+      bio: "A multidisciplinary artist with a background in fine arts and architectural design. Her work explores the relationship between surface, form, and narrative — often blending visual art with functional design. Currently focused on creating wearable art, using everyday objects as expressive canvases.",
+      location: "Pakistan",
+      image: "/lovable-uploads/44585051-d82c-4467-8d29-6618d6a3d1be.png",
+      featured: true,
+      piecesCount: 12,
+      instagram: "@rabailalizaidi"
+    }
+  ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-secondary/20">
