@@ -17,6 +17,20 @@ const ArtistsSection = () => {
       featured: true,
       piecesCount: 12,
       instagram: "@rabailalizaidi"
+    },
+    {
+      id: 2,
+      name: "Sarah Maqsood",
+      specialty: "Black & White Ink Illustrations",
+      bio: "Sarah Maqsood specializes in creating black and white ink illustrations, often with a tinge of color to them. Her goal is to not only limit her art to pen and paper, but to let it be worn, carried, and made a beautiful part of everyday life. To achieve this, she's currently into customizing shoes with her unique illustrations, transforming them into wearable, beautiful pieces of art.",
+      location: "Pakistan"
+    },
+    {
+      id: 3,
+      name: "The Kharazmi Sisters",
+      specialty: "Handicrafts & Digital Design",
+      bio: "The Kharazmi Sisters are 2 sisters (not by blood) with a passion for artistic expressions ranging across handicrafts, Epoxy products, hand-woven articles, paintings, custom artwork and digital design. They aim to establish themselves as a Work-from-Home Art Studio, with a strong religious background they wish to advertise the freedom of operating remotely all while freely expressing art through any available canvas.",
+      location: "Pakistan"
     }
   ];
 
@@ -34,23 +48,25 @@ const ArtistsSection = () => {
         </div>
 
         {/* Artist Information */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {artists.length > 0 ? (
-            artists.map((artist) => (
-              <div key={artist.id} className="bg-card rounded-lg border p-8 text-center">
-                <h3 className="text-2xl font-bold text-foreground mb-2">{artist.name}</h3>
-                <p className="text-lg text-primary mb-4 font-medium">
-                  {artist.specialty}
-                </p>
-                <div className="flex items-center justify-center mb-4">
-                  <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />
-                  <span className="text-muted-foreground">{artist.location}</span>
+            <div className="space-y-8">
+              {artists.map((artist) => (
+                <div key={artist.id} className="bg-card rounded-lg border p-8 text-center">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{artist.name}</h3>
+                  <p className="text-lg text-primary mb-4 font-medium">
+                    {artist.specialty}
+                  </p>
+                  <div className="flex items-center justify-center mb-4">
+                    <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />
+                    <span className="text-muted-foreground">{artist.location}</span>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                    {artist.bio}
+                  </p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                  {artist.bio}
-                </p>
-              </div>
-            ))
+              ))}
+            </div>
           ) : (
             <div className="text-center py-20">
               <h3 className="text-2xl font-bold mb-4">Meet Our Artists</h3>
