@@ -6,7 +6,6 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import EnhancedCollections from '@/components/EnhancedCollections';
 import CustomOrder from '@/components/CustomOrder';
-import TheVault from '@/components/TheVault';
 import FeaturedProduct from '@/components/FeaturedProduct';
 import ArtistsSection from '@/components/ArtistsSection';
 import AboutSection from '@/components/AboutSection';
@@ -28,9 +27,6 @@ const Index = () => {
           </div>
           <div id="custom-order">
             <CustomOrder />
-          </div>
-          <div id="vault">
-            <TheVault />
           </div>
           <div id="featured">
             <FeaturedProduct />

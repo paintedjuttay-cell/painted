@@ -14,30 +14,11 @@ const CustomOrder = () => {
   const [basePrice] = useState(299);
   const [totalPrice, setTotalPrice] = useState(basePrice);
 
-  // Shoe base options with actual painted examples
+  // Single shoe base option
   const shoeBase = [
     {
       id: "1",
       name: "Air Force 1",
-      image: "/lovable-uploads/7cb5a7bd-0394-4824-ba62-fc52889f76b4.png",
-      price: 0
-    },
-    {
-      id: "2",
-      name: "Air Force 1",
-      image: "/lovable-uploads/cfd57b00-3b18-428c-a15b-c6b9f06f42ca.png",
-      price: 0
-    },
-    {
-      id: "3",
-      name: "Air Force 1",
-      image: "/lovable-uploads/62cf5f4d-1cba-4fe6-b457-4a47dca26fb2.png",
-      price: 0
-    },
-    {
-      id: "4",
-      name: "Air Force 1",
-      image: "/lovable-uploads/883b383a-b197-4edf-bcff-2b364bdbb171.png",
       price: 0
     }
   ];
@@ -101,28 +82,18 @@ const CustomOrder = () => {
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold pulse-glow">1</div>
                   <h3 className="text-xl font-bold text-foreground">Choose Your Canvas</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {shoeBase.length > 0 ? (
-                    shoeBase.map((shoe) => (
-                      <div
-                        key={shoe.id}
-                        onClick={() => setSelectedBase(shoe.id)}
-                        className={`relative cursor-pointer border-2 rounded-lg overflow-hidden transition-all duration-200 ${
-                          selectedBase === shoe.id ? 'border-red-500 scale-105' : 'border-gray-600 hover:border-gray-400'
-                        }`}
-                      >
-                        <img src={shoe.image} alt={shoe.name} className="w-full h-32 object-cover" />
-                        <div className="p-3 bg-gray-800">
-                          <h4 className="text-white font-semibold">{shoe.name}</h4>
-                          <p className="text-gray-400 text-sm">+${shoe.price}</p>
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="col-span-3 text-center py-8 border-2 border-dashed border-gray-600 rounded-lg">
-                      <p className="text-gray-400">Juttay base options coming soon</p>
+                <div className="grid grid-cols-1 gap-4">
+                  <div
+                    onClick={() => setSelectedBase(shoeBase[0].id)}
+                    className={`relative cursor-pointer border-2 rounded-lg p-4 transition-all duration-200 ${
+                      selectedBase === shoeBase[0].id ? 'border-primary bg-primary/10' : 'border-border hover:border-primary/50'
+                    }`}
+                  >
+                    <div className="text-center">
+                      <h4 className="text-foreground font-semibold text-lg">{shoeBase[0].name}</h4>
+                      <p className="text-muted-foreground text-sm">Classic silhouette for custom painting</p>
                     </div>
-                  )}
+                  </div>
                 </div>
               </CardContent>
             </Card>
