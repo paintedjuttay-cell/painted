@@ -38,13 +38,12 @@ const Footer = () => {
             <h3 className="text-foreground font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                { name: 'Collections', href: '#collections' },
-                { name: 'Custom Orders', href: '#custom-order' },
-                { name: 'The Vault', href: '#collections' },
+                { name: 'Home', href: '#hero' },
+                { name: 'Gallery', href: '#collections' },
+                { name: 'Custom Order', href: '#custom-order' },
                 { name: 'Artists', href: '#artists' },
-                { name: 'About Us', href: '#about' },
-                { name: 'Size Guide', href: '#about' },
-                { name: 'Care Instructions', href: '#about' }
+                { name: 'About', href: '#about' },
+                { name: 'Contact', href: '#contact' }
               ].map((link) => (
                 <li key={link.name}>
                   <a 
