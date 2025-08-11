@@ -38,17 +38,27 @@ const Footer = () => {
             <h3 className="text-foreground font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {[
-                'Collections',
-                'Custom Orders',
-                'The Vault',
-                'Artists',
-                'About Us',
-                'Size Guide',
-                'Care Instructions'
+                { name: 'Collections', href: '#collections' },
+                { name: 'Custom Orders', href: '#custom-order' },
+                { name: 'The Vault', href: '#collections' },
+                { name: 'Artists', href: '#artists' },
+                { name: 'About Us', href: '#about' },
+                { name: 'Size Guide', href: '#about' },
+                { name: 'Care Instructions', href: '#about' }
               ].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm splatter-hover">
-                    {link}
+                <li key={link.name}>
+                  <a 
+                    href={link.href} 
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm splatter-hover"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                  >
+                    {link.name}
                   </a>
                 </li>
               ))}
