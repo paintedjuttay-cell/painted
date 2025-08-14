@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
@@ -169,6 +170,38 @@
           font-size: 1.6rem;
         }
       }
+
+      /* React App Integration Styles */
+      #react-app-root {
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      .shopify-section {
+        display: none;
+      }
+
+      .shopify-section.active {
+        display: block;
+      }
+
+      /* Show React app by default, hide on specific Shopify pages */
+      body.template-index #react-app-root,
+      body.template-page #react-app-root {
+        display: block;
+      }
+
+      body.template-product #react-app-root,
+      body.template-collection #react-app-root,
+      body.template-cart #react-app-root {
+        display: none;
+      }
+
+      body.template-product .shopify-section,
+      body.template-collection .shopify-section,
+      body.template-cart .shopify-section {
+        display: block;
+      }
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -192,16 +225,20 @@
     </script>
   </head>
 
-  <body class="gradient">
+  <body class="gradient template-{{ template.name }}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
+    <!-- React App Container -->
+    <div id="react-app-root"></div>
+
+    <!-- Shopify Sections (shown for product/collection/cart pages) -->
     <div id="shopify-section-header" class="shopify-section">
       {% section 'header' %}
     </div>
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none shopify-section" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
@@ -242,10 +279,43 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
+
+      // Shopify data for React app
+      window.shopifyData = {
+        shop: {
+          name: '{{ shop.name }}',
+          domain: '{{ shop.domain }}',
+          currency: '{{ cart.currency.iso_code }}',
+          money_format: '{{ shop.money_format }}'
+        },
+        cart: {{ cart | json }},
+        customer: {{ customer | json }},
+        template: '{{ template.name }}',
+        page: {
+          title: '{{ page_title }}',
+          url: '{{ canonical_url }}'
+        }
+      };
     </script>
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- React App Scripts - Load your built React bundle here -->
+    <script type="module">
+      // This will load your React app when it's built and placed in assets/
+      // For development, you might want to load from your dev server
+      if (document.body.classList.contains('template-index') || document.body.classList.contains('template-page')) {
+        // Load React app for homepage and custom pages
+        import('{{ 'react-app.js' | asset_url }}').then(module => {
+          // Your React app should mount to #react-app-root
+        }).catch(err => {
+          console.log('React app not loaded yet - development mode');
+          // In development, your React app runs on a different port
+          // You can add a script tag here to load from your dev server
+        });
+      }
+    </script>
   </body>
 </html>

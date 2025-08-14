@@ -1,0 +1,10 @@
+
+{
+  "scripts": {
+    "build:shopify": "vite build --config vite.shopify.config.ts",
+    "dev:shopify": "vite build --config vite.shopify.config.ts --watch",
+    "shopify:theme": "shopify theme dev",
+    "shopify:push": "shopify theme push",
+    "shopify:pull": "shopify theme pull"
+  }
+}
