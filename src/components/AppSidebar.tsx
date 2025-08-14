@@ -36,7 +36,7 @@ const navigationItems = [
     title: "Main",
     items: [
       { title: "Home", icon: Home, href: "#hero" },
-      { title: "Gallery", icon: Palette, href: "#collections" },
+      { title: "Collections", icon: Palette, href: "#collections" },
       { title: "Custom Order", icon: ShoppingBag, href: "#custom-order" },
     ]
   },
