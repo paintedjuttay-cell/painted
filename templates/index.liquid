@@ -1,0 +1,35 @@
+{%- comment -%}
+  Painted Juttay - Home Page Template
+  Features: Hero, Featured Collections, Custom Orders, Artists, About
+{%- endcomment -%}
+
+{% section 'hero' %}
+{% section 'enhanced-collections' %}
+{% section 'custom-order' %}
+{% section 'artists' %}
+{% section 'about' %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name | json }}",
+  "url": "{{ shop.url }}",
+  "description": "Hand-painted sneakers that tell stories. Each pair is a canvas, each step is a statement.",
+  "logo": "{% if settings.logo %}{{ settings.logo | img_url: '300x' }}{% endif %}",
+  "sameAs": [
+    "{% if settings.instagram_url %}{{ settings.instagram_url }}{% endif %}",
+    "{% if settings.facebook_url %}{{ settings.facebook_url }}{% endif %}",
+    "{% if settings.twitter_url %}{{ settings.twitter_url }}{% endif %}"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PK"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ routes.search_url }}?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
