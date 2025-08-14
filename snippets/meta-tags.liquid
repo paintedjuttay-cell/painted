@@ -1,0 +1,22 @@
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ page_title | default: shop.name }}">
+<meta property="og:description" content="{{ page_description | default: shop.description | strip_html | truncate: 160 }}">
+{%- if settings.share_image -%}
+  <meta property="og:image" content="{{ settings.share_image | image_url: width: 1200, height: 630 }}">
+{%- endif -%}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ canonical_url }}">
+<meta property="twitter:title" content="{{ page_title | default: shop.name }}">
+<meta property="twitter:description" content="{{ page_description | default: shop.description | strip_html | truncate: 160 }}">
+{%- if settings.share_image -%}
+  <meta property="twitter:image" content="{{ settings.share_image | image_url: width: 1200, height: 630 }}">
+{%- endif -%}
+
+<!-- Additional meta tags -->
+<meta name="author" content="{{ shop.name }}">
+<meta name="generator" content="Shopify">

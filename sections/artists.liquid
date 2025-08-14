@@ -1,0 +1,175 @@
+{%- style -%}  
+  .artists-section-{{ section.id }} {
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, hsl(var(--color-background)), hsl(var(--color-secondary)));
+  }
+  
+  .artists-container-{{ section.id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .artists-header-{{ section.id }} {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .artists-title-{{ section.id }} {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 1rem;
+  }
+  
+  .artists-subtitle-{{ section.id }} {
+    font-size: 1.125rem;
+    color: hsl(var(--color-muted-foreground));
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  .artist-card-{{ section.id }} {
+    background: hsl(var(--color-card));
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--color-border));
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .artist-card-{{ section.id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .artist-name-{{ section.id }} {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 0.5rem;
+  }
+  
+  .artist-specialty-{{ section.id }} {
+    font-size: 1rem;
+    color: hsl(var(--color-primary));
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .artist-location-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: hsl(var(--color-muted-foreground));
+    margin-bottom: 1rem;
+  }
+  
+  .artist-bio-{{ section.id }} {
+    color: hsl(var(--color-muted-foreground));
+    line-height: 1.6;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+{%- endstyle -%}
+
+<section class="artists-section-{{ section.id }}" id="artists">
+  <div class="artists-container-{{ section.id }}">
+    <div class="artists-header-{{ section.id }}">
+      <h2 class="artists-title-{{ section.id }}">
+        {{ section.settings.title | default: "Our Artists" }}
+      </h2>
+      <p class="artists-subtitle-{{ section.id }}">
+        {{ section.settings.subtitle | default: "Meet the talented creators from Pakistan who bring each pair to life with their unique vision and artistic mastery." }}
+      </p>
+    </div>
+
+    <div>
+      {%- for block in section.blocks -%}
+        <div class="artist-card-{{ section.id }}" {{ block.shopify_attributes }}>
+          <h3 class="artist-name-{{ section.id }}">{{ block.settings.name }}</h3>
+          <p class="artist-specialty-{{ section.id }}">{{ block.settings.specialty }}</p>
+          <div class="artist-location-{{ section.id }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>{{ block.settings.location | default: "Pakistan" }}</span>
+          </div>
+          <p class="artist-bio-{{ section.id }}">{{ block.settings.bio }}</p>
+        </div>
+      {%- else -%}
+        {%- comment -%} Default content when no blocks are added {%- endcomment -%}
+        <div class="artist-card-{{ section.id }}">
+          <h3 class="artist-name-{{ section.id }}">Rabail Ali Zaidi</h3>
+          <p class="artist-specialty-{{ section.id }}">Multidisciplinary Artist & Wearable Art</p>
+          <div class="artist-location-{{ section.id }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Pakistan</span>
+          </div>
+          <p class="artist-bio-{{ section.id }}">A multidisciplinary artist with a background in fine arts and architectural design. Her work explores the relationship between surface, form, and narrative — often blending visual art with functional design.</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Artists",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Artists"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Meet the talented creators from Pakistan who bring each pair to life with their unique vision and artistic mastery."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "artist",
+      "name": "Artist",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Artist Name"
+        },
+        {
+          "type": "text",
+          "id": "specialty",
+          "label": "Specialty"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Pakistan"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Bio"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Artists"
+    }
+  ]
+}
+{% endschema %}

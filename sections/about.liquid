@@ -1,0 +1,365 @@
+
+{%- style -%}
+  .about-section-{{ section.id }} {
+    padding: 5rem 0;
+    background: hsl(var(--color-background));
+  }
+  
+  .about-container-{{ section.id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .about-header-{{ section.id }} {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .about-badge-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: hsla(var(--color-primary) / 0.1);
+    color: hsl(var(--color-primary));
+    border: 1px solid hsla(var(--color-primary) / 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .about-title-{{ section.id }} {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-subtitle-{{ section.id }} {
+    font-size: 1.25rem;
+    color: hsl(var(--color-muted-foreground));
+    max-width: 48rem;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+  
+  .mission-card-{{ section.id }} {
+    background: hsl(var(--color-card));
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--color-border));
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .mission-title-{{ section.id }} {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: hsl(var(--color-primary));
+    margin-bottom: 1rem;
+  }
+  
+  .mission-text-{{ section.id }} {
+    font-size: 1.125rem;
+    color: hsl(var(--color-muted-foreground));
+    line-height: 1.6;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  .values-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .value-card-{{ section.id }} {
+    background: hsl(var(--color-card));
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--color-border));
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: artisticFloat 6s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  
+  .value-card-{{ section.id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .value-icon-{{ section.id }} {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem;
+    background: hsla(var(--color-primary) / 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--color-primary));
+  }
+  
+  .value-title-{{ section.id }} {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 0.75rem;
+  }
+  
+  .value-description-{{ section.id }} {
+    color: hsl(var(--color-muted-foreground));
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .process-section-{{ section.id }} {
+    text-align: center;
+  }
+  
+  .process-title-{{ section.id }} {
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 2rem;
+  }
+  
+  .process-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  
+  .process-step-{{ section.id }} {
+    text-align: center;
+  }
+  
+  .process-number-{{ section.id }} {
+    width: 3rem;
+    height: 3rem;
+    background: hsl(var(--color-primary));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.125rem;
+    margin: 0 auto 1rem;
+  }
+  
+  .process-step-title-{{ section.id }} {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 0.75rem;
+  }
+  
+  .process-step-description-{{ section.id }} {
+    color: hsl(var(--color-muted-foreground));
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .values-grid-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
+    
+    .process-grid-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<section class="about-section-{{ section.id }}" id="about">
+  <div class="about-container-{{ section.id }}">
+    <div class="about-header-{{ section.id }}">
+      <div class="about-badge-{{ section.id }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"></path>
+        </svg>
+        {{ section.settings.badge_text | default: "Our Story" }}
+      </div>
+      <h2 class="about-title-{{ section.id }}">
+        {{ section.settings.title | default: "Where Art Meets Street" }}
+      </h2>
+      <p class="about-subtitle-{{ section.id }}">
+        {{ section.settings.subtitle | default: "Painted Juttay began as a vision to transform ordinary sneakers into extraordinary works of art. We believe that every step should tell a story, and every story deserves to be painted with passion." }}
+      </p>
+    </div>
+
+    <div class="mission-card-{{ section.id }}">
+      <h3 class="mission-title-{{ section.id }}">{{ section.settings.mission_title | default: "Our Mission" }}</h3>
+      <p class="mission-text-{{ section.id }}">
+        {{ section.settings.mission_text | default: "To empower Pakistani artists by providing them with a global platform while creating wearable art that celebrates culture, creativity, and individual expression. We're not just painting shoes—we're painting dreams, stories, and connections across cultures." }}
+      </p>
+    </div>
+
+    <div class="values-grid-{{ section.id }}">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'value' -%}
+          <div class="value-card-{{ section.id }}" style="--delay: {{ forloop.index0 | times: 0.2 }}s;" {{ block.shopify_attributes }}>
+            <div class="value-icon-{{ section.id }}">
+              {%- case block.settings.icon -%}
+                {%- when 'heart' -%}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                {%- when 'globe' -%}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                {%- when 'brush' -%}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9.06 11.9l8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"></path>
+                    <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"></path>
+                  </svg>
+                {%- when 'trophy' -%}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                  </svg>
+                {%- else -%}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"></path>
+                  </svg>
+              {%- endcase -%}
+            </div>
+            <h4 class="value-title-{{ section.id }}">{{ block.settings.title }}</h4>
+            <p class="value-description-{{ section.id }}">{{ block.settings.description }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_process -%}
+      <div class="process-section-{{ section.id }}">
+        <h3 class="process-title-{{ section.id }}">{{ section.settings.process_title | default: "Our Process" }}</h3>
+        <div class="process-grid-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'process_step' -%}
+              <div class="process-step-{{ section.id }}" {{ block.shopify_attributes }}>
+                <div class="process-number-{{ section.id }}">{{ forloop.index }}</div>
+                <h4 class="process-step-title-{{ section.id }}">{{ block.settings.title }}</h4>
+                <p class="process-step-description-{{ section.id }}">{{ block.settings.description }}</p>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Where Art Meets Street"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Painted Juttay began as a vision to transform ordinary sneakers into extraordinary works of art."
+    },
+    {
+      "type": "text",
+      "id": "mission_title",
+      "label": "Mission title",
+      "default": "Our Mission"
+    },
+    {
+      "type": "textarea",
+      "id": "mission_text",
+      "label": "Mission text",
+      "default": "To empower Pakistani artists by providing them with a global platform while creating wearable art that celebrates culture, creativity, and individual expression."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_process",
+      "label": "Show process section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "process_title",
+      "label": "Process title",
+      "default": "Our Process"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "heart", "label": "Heart" },
+            { "value": "globe", "label": "Globe" },
+            { "value": "brush", "label": "Brush" },
+            { "value": "trophy", "label": "Trophy" }
+          ],
+          "default": "heart"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "process_step",
+      "name": "Process Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About"
+    }
+  ]
+}
+{% endschema %}

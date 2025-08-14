@@ -1,0 +1,215 @@
+
+{%- style -%}
+  .enhanced-collections-{{ section.id }} {
+    padding: 5rem 0;
+    background: hsl(var(--color-background));
+  }
+  
+  .collections-header-{{ section.id }} {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .collections-title-{{ section.id }} {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: hsl(var(--color-foreground));
+    margin-bottom: 1rem;
+  }
+  
+  .collections-subtitle-{{ section.id }} {
+    font-size: 1.125rem;
+    color: hsl(var(--color-muted-foreground));
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  
+  .collections-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .collection-card-{{ section.id }} {
+    background: hsl(var(--color-card));
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid hsl(var(--color-border));
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    transform-style: preserve-3d;
+  }
+  
+  .collection-card-{{ section.id }}:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .collection-image-{{ section.id }} {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .collection-card-{{ section.id }}:hover .collection-image-{{ section.id }} {
+    transform: scale(1.1);
+  }
+  
+  .show-more-btn-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: hsl(var(--color-primary));
+    border: 2px solid hsl(var(--color-primary));
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .show-more-btn-{{ section.id }}:hover {
+    background: hsl(var(--color-primary));
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .collections-grid-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<section class="enhanced-collections-{{ section.id }}" id="collections">
+  <div class="container">
+    <div class="collections-header-{{ section.id }}">
+      <h2 class="collections-title-{{ section.id }}">
+        {{ section.settings.title | default: "Our Collections" }}
+        <span class="text-primary">{{ section.settings.title_highlight | default: "" }}</span>
+      </h2>
+      <p class="collections-subtitle-{{ section.id }}">
+        {{ section.settings.subtitle | default: "Each collection tells a different story, crafted by passionate artists who transform ordinary shoes into extraordinary art pieces." }}
+      </p>
+    </div>
+
+    <div class="collections-grid-{{ section.id }}">
+      {%- liquid
+        assign displayed_collections = collections
+        if section.settings.featured_collections != blank
+          assign displayed_collections = section.settings.featured_collections
+        endif
+        assign show_all = section.settings.show_all_initially
+        assign limit = 6
+        if show_all
+          assign limit = 20
+        endif
+      -%}
+
+      {%- for collection in displayed_collections limit: limit -%}
+        {%- unless collection.id == blank -%}
+          <a href="{{ collection.url }}" class="collection-card-{{ section.id }}">
+            <div style="position: relative; overflow: hidden;">
+              {%- if collection.featured_image != blank -%}
+                <img
+                  src="{{ collection.featured_image | image_url: width: 600 }}"
+                  alt="{{ collection.featured_image.alt | escape }}"
+                  class="collection-image-{{ section.id }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="collection-image-{{ section.id }}" style="background: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(262 83% 68%) 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                  {{ collection.title }}
+                </div>
+              {%- endif -%}
+              <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent); opacity: 0; transition: opacity 0.3s ease;" 
+                   onmouseover="this.style.opacity='1'" 
+                   onmouseout="this.style.opacity='0'">
+              </div>
+            </div>
+          </a>
+        {%- endunless -%}
+      {%- else -%}
+        {%- comment -%} Fallback content when no collections available {%- endcomment -%}
+        {%- for i in (1..6) -%}
+          <div class="collection-card-{{ section.id }}">
+            <div class="collection-image-{{ section.id }}" style="background: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(262 83% 68%) 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+              Collection {{ i }}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+
+    {%- unless section.settings.show_all_initially -%}
+      <div class="text-center">
+        <button class="show-more-btn-{{ section.id }}" onclick="showMoreCollections{{ section.id }}()">
+          Show More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+          </svg>
+        </button>
+      </div>
+    {%- endunless -%}
+  </div>
+</section>
+
+<script>
+  function showMoreCollections{{ section.id }}() {
+    // This would typically load more collections via AJAX
+    // For now, we'll hide the button and show a message
+    const button = document.querySelector('.show-more-btn-{{ section.id }}');
+    if (button) {
+      button.style.display = 'none';
+      // You can implement AJAX loading here
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Enhanced Collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Title highlight",
+      "default": "Collections"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Each collection tells a different story, crafted by passionate artists who transform ordinary shoes into extraordinary art pieces."
+    },
+    {
+      "type": "collection_list",
+      "id": "featured_collections",
+      "label": "Featured collections",
+      "limit": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all_initially",
+      "label": "Show all collections initially",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Enhanced Collections"
+    }
+  ]
+}
+{% endschema %}

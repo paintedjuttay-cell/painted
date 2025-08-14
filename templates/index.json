@@ -1,100 +1,153 @@
+
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
         "title": "Painted {Juttay}",
-        "subtitle": "Where Art Meets Street",
         "description": "Hand-painted sneakers that tell stories. Each pair is a canvas, each step is a statement. Premium custom art sneakers by Pakistani artists.",
         "show_badge": true,
         "badge_text": "LIMITED DROPS",
         "primary_button_label": "Explore The Gallery",
         "primary_button_link": "#collections",
         "secondary_button_label": "Commission Artwork",
-        "secondary_button_link": "/pages/custom-order",
-        "show_scroll_indicator": true,
-        "scroll_text": "Gallery Viewing Invitation"
+        "secondary_button_link": "#custom-order"
       }
     },
-    "collections": {
-      "type": "collections",
+    "enhanced-collections": {
+      "type": "enhanced-collections",
       "settings": {
-        "title": "Artisan Collections",
-        "subtitle": "Discover our curated collections of hand-painted masterpieces, each telling a unique story through art and craftsmanship.",
-        "show_filters": true,
-        "show_view_all": true,
-        "view_all_text": "View All Collections"
+        "title": "Our",
+        "title_highlight": "Collections",
+        "subtitle": "Each collection tells a different story, crafted by passionate artists who transform ordinary shoes into extraordinary art pieces.",
+        "show_all_initially": false
       }
     },
-    "featured-product": {
-      "type": "featured-product",
+    "custom-order": {
+      "type": "custom-order",
       "settings": {
-        "product": "",
-        "color_scheme": "background-1",
-        "secondary_background": false,
-        "media_position": "left",
-        "hide_variants": false,
-        "enable_video_looping": false
+        "title": "Commission Your Art",
+        "subtitle": "Work with our talented artists to create a completely unique pair that tells your story."
       }
     },
-    "about": {
-      "type": "multicolumn",
+    "artists": {
+      "type": "artists",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "artist-1": {
+          "type": "artist",
           "settings": {
-            "title": "Artisan Craftsmanship",
-            "text": "<p>Every pair is meticulously hand-painted by skilled Pakistani artists, ensuring each sneaker is a unique work of art.</p>",
-            "link_label": "",
-            "link": ""
+            "name": "Rabail Ali Zaidi",
+            "specialty": "Multidisciplinary Artist & Wearable Art",
+            "location": "Pakistan",
+            "bio": "A multidisciplinary artist with a background in fine arts and architectural design. Her work explores the relationship between surface, form, and narrative — often blending visual art with functional design."
           }
         },
-        "column2": {
-          "type": "column",
+        "artist-2": {
+          "type": "artist",
           "settings": {
-            "title": "Premium Materials",
-            "text": "<p>We use only the finest leather and premium sneaker bases to ensure durability and comfort.</p>",
-            "link_label": "",
-            "link": ""
+            "name": "Sarah Maqsood",
+            "specialty": "Black & White Ink Illustrations",
+            "location": "Pakistan",
+            "bio": "Sarah Maqsood specializes in creating black and white ink illustrations, often with a tinge of color to them. Her goal is to not only limit her art to pen and paper, but to let it be worn and carried."
           }
         },
-        "column3": {
-          "type": "column",
+        "artist-3": {
+          "type": "artist",
           "settings": {
-            "title": "Custom Designs",
-            "text": "<p>Commission a completely custom design that tells your story and reflects your personal style.</p>",
-            "link_label": "",
-            "link": ""
+            "name": "The Kharazmi Sisters",
+            "specialty": "Handicrafts & Digital Design",
+            "location": "Pakistan",
+            "bio": "The Kharazmi Sisters are 2 sisters with a passion for artistic expressions ranging across handicrafts, Epoxy products, hand-woven articles, paintings, custom artwork and digital design."
           }
         }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["artist-1", "artist-2", "artist-3"],
       "settings": {
-        "title": "Why Choose Painted Juttay",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "button_label": "Learn More",
-        "button_link": "/pages/about",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Our Artists",
+        "subtitle": "Meet the talented creators from Pakistan who bring each pair to life with their unique vision and artistic mastery."
+      }
+    },
+    "about": {
+      "type": "about",
+      "blocks": {
+        "value-1": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Authentic Artistry",
+            "description": "Every piece is hand-painted by talented Pakistani artists, ensuring each pair tells a unique story."
+          }
+        },
+        "value-2": {
+          "type": "value",
+          "settings": {
+            "icon": "globe",
+            "title": "Cultural Bridge",
+            "description": "Connecting Pakistani street art with global streetwear culture, one step at a time."
+          }
+        },
+        "value-3": {
+          "type": "value",
+          "settings": {
+            "icon": "brush",
+            "title": "Custom Craftsmanship",
+            "description": "From concept to creation, we work with you to bring your vision to life on premium sneakers."
+          }
+        },
+        "value-4": {
+          "type": "value",
+          "settings": {
+            "icon": "trophy",
+            "title": "Quality Promise",
+            "description": "Using only the finest materials and techniques to ensure your art lasts as long as your story."
+          }
+        },
+        "process-1": {
+          "type": "process_step",
+          "settings": {
+            "title": "Consultation",
+            "description": "We discuss your vision, style preferences, and the story you want to tell through your custom piece."
+          }
+        },
+        "process-2": {
+          "type": "process_step",
+          "settings": {
+            "title": "Design",
+            "description": "Our artists create detailed sketches and color concepts based on your requirements."
+          }
+        },
+        "process-3": {
+          "type": "process_step",
+          "settings": {
+            "title": "Creation",
+            "description": "Hand-painting begins with careful attention to detail, bringing your vision to life."
+          }
+        },
+        "process-4": {
+          "type": "process_step",
+          "settings": {
+            "title": "Delivery",
+            "description": "Your unique art piece is carefully packaged and delivered to your doorstep."
+          }
+        }
+      },
+      "block_order": ["value-1", "value-2", "value-3", "value-4", "process-1", "process-2", "process-3", "process-4"],
+      "settings": {
+        "badge_text": "Our Story",
+        "title": "Where Art Meets Street",
+        "subtitle": "Painted Juttay began as a vision to transform ordinary sneakers into extraordinary works of art. We believe that every step should tell a story, and every story deserves to be painted with passion.",
+        "mission_title": "Our Mission",
+        "mission_text": "To empower Pakistani artists by providing them with a global platform while creating wearable art that celebrates culture, creativity, and individual expression. We're not just painting shoes—we're painting dreams, stories, and connections across cultures.",
+        "show_process": true,
+        "process_title": "Our Process"
       }
     }
   },
   "order": [
     "hero",
-    "collections", 
-    "featured-product",
+    "enhanced-collections",
+    "custom-order",
+    "artists",
     "about"
   ]
 }
